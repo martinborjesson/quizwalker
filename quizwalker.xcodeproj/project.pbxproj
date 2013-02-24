@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */; };
 		5B391F6316DA129E00FEE581 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6216DA129E00FEE581 /* UIKit.framework */; };
 		5B391F6516DA129E00FEE581 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6416DA129E00FEE581 /* Foundation.framework */; };
 		5B391F6716DA129E00FEE581 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6616DA129E00FEE581 /* CoreGraphics.framework */; };
@@ -17,10 +18,12 @@
 		5B391F7716DA129E00FEE581 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F7616DA129E00FEE581 /* Default@2x.png */; };
 		5B391F7916DA129E00FEE581 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F7816DA129E00FEE581 /* Default-568h@2x.png */; };
 		5B391F7C16DA129E00FEE581 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F7A16DA129E00FEE581 /* MainStoryboard.storyboard */; };
-		5B391F7F16DA129E00FEE581 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B391F7E16DA129E00FEE581 /* ViewController.m */; };
+		5B391F7F16DA129E00FEE581 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B391F7E16DA129E00FEE581 /* FirstViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQuestionsViewController.h; sourceTree = "<group>"; };
+		5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionsViewController.m; sourceTree = "<group>"; };
 		5B391F5F16DA129E00FEE581 /* quizwalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quizwalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B391F6216DA129E00FEE581 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5B391F6416DA129E00FEE581 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,8 +38,8 @@
 		5B391F7616DA129E00FEE581 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5B391F7816DA129E00FEE581 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5B391F7B16DA129E00FEE581 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5B391F7D16DA129E00FEE581 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5B391F7E16DA129E00FEE581 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5B391F7D16DA129E00FEE581 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		5B391F7E16DA129E00FEE581 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +89,10 @@
 				5B391F7116DA129E00FEE581 /* AppDelegate.h */,
 				5B391F7216DA129E00FEE581 /* AppDelegate.m */,
 				5B391F7A16DA129E00FEE581 /* MainStoryboard.storyboard */,
-				5B391F7D16DA129E00FEE581 /* ViewController.h */,
-				5B391F7E16DA129E00FEE581 /* ViewController.m */,
+				5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */,
+				5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */,
+				5B391F7D16DA129E00FEE581 /* FirstViewController.h */,
+				5B391F7E16DA129E00FEE581 /* FirstViewController.m */,
 				5B391F6916DA129E00FEE581 /* Supporting Files */,
 			);
 			path = quizwalker;
@@ -175,7 +180,8 @@
 			files = (
 				5B391F6F16DA129E00FEE581 /* main.m in Sources */,
 				5B391F7316DA129E00FEE581 /* AppDelegate.m in Sources */,
-				5B391F7F16DA129E00FEE581 /* ViewController.m in Sources */,
+				5B391F7F16DA129E00FEE581 /* FirstViewController.m in Sources */,
+				5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				5B391F8416DA129E00FEE581 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CreateQuestionsViewController.h
 //  quizwalker
 //
 //  Created by Martin Börjesson on 2013-02-24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CreateQuestionsViewController : UIViewController
 
 @end

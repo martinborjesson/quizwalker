@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Martin Börjesson. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "FirstViewController.h"
 
-@interface ViewController ()
+@interface FirstViewController ()
 
 @end
 
-@implementation ViewController
+@implementation FirstViewController
 
 - (void)viewDidLoad
 {
