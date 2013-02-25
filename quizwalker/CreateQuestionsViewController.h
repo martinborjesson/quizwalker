@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CreateQuestionsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *QuestionTextView;
 
 @end

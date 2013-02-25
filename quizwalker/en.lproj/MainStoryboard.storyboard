@@ -184,6 +184,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zzr-fD-CSd"/>
+                    <connections>
+                        <outlet property="QuestionTextView" destination="tNW-RD-h9R" id="cG3-f7-pra"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ay3-3P-P6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,6 +211,9 @@
     <classes>
         <class className="CreateQuestionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateQuestionsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="QuestionTextView" candidateClass="UITextView"/>
+            </relationships>
         </class>
         <class className="FirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
