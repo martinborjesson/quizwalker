@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0B1DE816DD18B200749AEF /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE716DD18B200749AEF /* Question.m */; };
 		5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */; };
 		5B391F6316DA129E00FEE581 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6216DA129E00FEE581 /* UIKit.framework */; };
 		5B391F6516DA129E00FEE581 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6416DA129E00FEE581 /* Foundation.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0B1DE616DD18B200749AEF /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		5B0B1DE716DD18B200749AEF /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQuestionsViewController.h; sourceTree = "<group>"; };
 		5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionsViewController.m; sourceTree = "<group>"; };
 		5B391F5F16DA129E00FEE581 /* quizwalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quizwalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B0B1DE516DD182500749AEF /* StorageObjects */ = {
+			isa = PBXGroup;
+			children = (
+				5B0B1DE616DD18B200749AEF /* Question.h */,
+				5B0B1DE716DD18B200749AEF /* Question.m */,
+			);
+			name = StorageObjects;
+			sourceTree = "<group>";
+		};
 		5B391F5616DA129E00FEE581 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +98,7 @@
 		5B391F6816DA129E00FEE581 /* quizwalker */ = {
 			isa = PBXGroup;
 			children = (
+				5B0B1DE516DD182500749AEF /* StorageObjects */,
 				5B391F7116DA129E00FEE581 /* AppDelegate.h */,
 				5B391F7216DA129E00FEE581 /* AppDelegate.m */,
 				5B391F7A16DA129E00FEE581 /* MainStoryboard.storyboard */,
@@ -182,6 +195,7 @@
 				5B391F7316DA129E00FEE581 /* AppDelegate.m in Sources */,
 				5B391F7F16DA129E00FEE581 /* FirstViewController.m in Sources */,
 				5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */,
+				5B0B1DE816DD18B200749AEF /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
