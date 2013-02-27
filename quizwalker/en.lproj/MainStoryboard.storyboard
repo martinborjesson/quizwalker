@@ -75,7 +75,7 @@
                             <constraint firstItem="hBj-v7-8QK" firstAttribute="top" secondItem="Fk0-hI-s4r" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yNN-i6-IXV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GnM-oM-Ia2"/>
+                    <navigationItem key="navigationItem" title="Start" id="GnM-oM-Ia2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIx-CN-ZWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,38 +89,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Uj-QN-5XX"/>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" text="1.Type the question here" translatesAutoresizingMaskIntoConstraints="NO" id="tNW-RD-h9R">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" hint="Type question here"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shz-L3-Zlw">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="241" type="user" id="KAR-jL-3Xg"/>
-                                    <constraint firstAttribute="width" constant="308" id="oAy-5Q-R6z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type answer 1 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goa-8Z-c8N">
-                                <accessibility key="accessibilityConfiguration" hint=""/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="229" id="ETI-rD-JLH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type answer 2 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-na-CRz">
-                                <accessibility key="accessibilityConfiguration" hint=""/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type answer 3 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8zp-Fp-hxZ">
-                                <accessibility key="accessibilityConfiguration" hint=""/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-ql-czc">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="6Wd-ew-wH3"/>
+                                    <constraint firstAttribute="width" constant="100" type="user" id="JGB-QT-zfF"/>
+                                    <constraint firstAttribute="height" constant="49" id="do2-LI-u82"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Previous">
@@ -131,14 +103,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="PreviousButton:" destination="GAS-2Q-t9Q" eventType="touchUpInside" id="Hc2-7i-9Rn"/>
+                                    <action selector="PreviousButton:" destination="GAS-2Q-t9Q" eventType="touchUpInside" id="y88-eD-Xif"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ex7-4g-Uz6"/>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="non-Fv-dHz"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8z-8l-jk7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbX-dH-Q7o">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="gMe-rr-kg9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" type="user" id="zz6-Qu-k1p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Next">
@@ -149,12 +119,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="NextButton:" destination="GAS-2Q-t9Q" eventType="touchUpInside" id="oVm-m7-8a6"/>
+                                    <action selector="NextButton:" destination="GAS-2Q-t9Q" eventType="touchUpInside" id="i15-n2-XAY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jI7-QU-8IY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-FB-9kh">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="hO6-Ku-zuZ"/>
+                                    <constraint firstAttribute="width" constant="128" type="user" id="AAU-kK-Ojx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="More Options">
@@ -165,39 +135,106 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type answer 3 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-kf-dnl">
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" type="user" id="8Zi-Ta-Ues"/>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="kcW-71-mrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oyb-Sd-hbW">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" type="user" id="VCc-mv-Z63"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="AnswerSwitchFlipped3:" destination="GAS-2Q-t9Q" eventType="valueChanged" id="H0k-xs-IKa"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type answer 2 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gz-r9-oN1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="79a-O4-2a6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" type="user" id="LBw-v6-wBP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-ek-GDB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" type="user" id="KPz-tm-m1p"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="AnswerSwitchFlipped2:" destination="GAS-2Q-t9Q" eventType="valueChanged" id="Se7-Ot-bCd"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type answer 1 here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-fZ-yxv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="Fca-YK-ihj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" type="user" id="zVU-fF-LbI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6mP-QA-daM">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" type="user" id="rAG-17-FKh"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="AnswerSwitchFlipped1:" destination="GAS-2Q-t9Q" eventType="valueChanged" id="VGg-Ao-syU"/>
+                                </connections>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1. Type Question here" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-wH-zNm">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" type="user" id="774-yd-IyT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" type="user" id="Fge-es-J65"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="UbE-ql-czc" secondAttribute="bottom" constant="5" id="0Hd-XT-QAC"/>
-                            <constraint firstItem="6Uj-QN-5XX" firstAttribute="leading" secondItem="ex7-4g-Uz6" secondAttribute="leading" type="default" id="0Wi-eb-6Gl"/>
-                            <constraint firstItem="8zp-Fp-hxZ" firstAttribute="leading" secondItem="Obl-na-CRz" secondAttribute="leading" type="default" id="3Cx-hb-811"/>
-                            <constraint firstItem="tNW-RD-h9R" firstAttribute="trailing" secondItem="goa-8Z-c8N" secondAttribute="trailing" type="default" id="7bG-b2-0aR"/>
-                            <constraint firstItem="8zp-Fp-hxZ" firstAttribute="top" secondItem="Obl-na-CRz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8XK-iP-CAz"/>
-                            <constraint firstItem="goa-8Z-c8N" firstAttribute="trailing" secondItem="Obl-na-CRz" secondAttribute="trailing" type="default" id="BD1-Ix-oAq"/>
-                            <constraint firstItem="jI7-QU-8IY" firstAttribute="baseline" secondItem="b8z-8l-jk7" secondAttribute="baseline" type="default" id="Mrf-sl-bwi"/>
-                            <constraint firstItem="6Uj-QN-5XX" firstAttribute="leading" secondItem="tNW-RD-h9R" secondAttribute="leading" type="default" id="P1Q-V6-17A"/>
-                            <constraint firstItem="jI7-QU-8IY" firstAttribute="trailing" secondItem="8zp-Fp-hxZ" secondAttribute="trailing" type="default" id="RLA-6b-q5G"/>
-                            <constraint firstItem="b8z-8l-jk7" firstAttribute="baseline" secondItem="UbE-ql-czc" secondAttribute="baseline" type="default" id="TKt-YV-NRX"/>
-                            <constraint firstItem="jI7-QU-8IY" firstAttribute="leading" secondItem="b8z-8l-jk7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="UuH-Gs-ud8"/>
-                            <constraint firstItem="b8z-8l-jk7" firstAttribute="leading" secondItem="UbE-ql-czc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Wr8-VK-KUO"/>
-                            <constraint firstItem="tNW-RD-h9R" firstAttribute="top" secondItem="C4d-mY-gpE" secondAttribute="top" constant="7" id="cgJ-WW-rEB"/>
-                            <constraint firstAttribute="bottom" secondItem="non-Fv-dHz" secondAttribute="bottom" constant="57" id="dEf-dF-KnO"/>
-                            <constraint firstAttribute="bottom" secondItem="6Uj-QN-5XX" secondAttribute="bottom" constant="133" id="f1L-CH-QtL"/>
-                            <constraint firstItem="Obl-na-CRz" firstAttribute="top" secondItem="goa-8Z-c8N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gn0-ee-kOk"/>
-                            <constraint firstItem="ex7-4g-Uz6" firstAttribute="leading" secondItem="non-Fv-dHz" secondAttribute="leading" type="default" id="hL7-57-2su"/>
-                            <constraint firstItem="tNW-RD-h9R" firstAttribute="centerX" secondItem="C4d-mY-gpE" secondAttribute="centerX" type="default" id="kRi-qf-e3R"/>
-                            <constraint firstAttribute="bottom" secondItem="8zp-Fp-hxZ" secondAttribute="bottom" constant="55" id="kcs-bU-I7q"/>
-                            <constraint firstItem="8zp-Fp-hxZ" firstAttribute="trailing" secondItem="Obl-na-CRz" secondAttribute="trailing" type="default" id="kkv-JS-6ml"/>
-                            <constraint firstAttribute="bottom" secondItem="ex7-4g-Uz6" secondAttribute="bottom" constant="95" id="s2q-dy-9JP"/>
-                            <constraint firstItem="goa-8Z-c8N" firstAttribute="leading" secondItem="Obl-na-CRz" secondAttribute="leading" type="default" id="sKY-OZ-hcJ"/>
+                            <constraint firstItem="xmJ-fZ-yxv" firstAttribute="top" secondItem="zRj-wH-zNm" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="1Ey-xM-ees"/>
+                            <constraint firstItem="ahV-FB-9kh" firstAttribute="top" secondItem="FYC-kf-dnl" secondAttribute="bottom" constant="8" type="user" id="2Yt-Av-HdW"/>
+                            <constraint firstItem="ahV-FB-9kh" firstAttribute="leading" secondItem="KbX-dH-Q7o" secondAttribute="trailing" constant="8" type="user" id="3tl-3I-FMZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Shz-L3-Zlw" secondAttribute="bottom" constant="8" type="user" id="4JF-o8-UYn"/>
+                            <constraint firstItem="FYC-kf-dnl" firstAttribute="leading" secondItem="oyb-Sd-hbW" secondAttribute="trailing" constant="8" type="user" id="5bK-9L-s6n"/>
+                            <constraint firstItem="Shz-L3-Zlw" firstAttribute="top" secondItem="FYC-kf-dnl" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="8TI-cz-QRJ"/>
+                            <constraint firstItem="2Gz-r9-oN1" firstAttribute="leading" secondItem="5D7-ek-GDB" secondAttribute="trailing" constant="8" type="user" id="9F9-xv-st1"/>
+                            <constraint firstAttribute="bottom" secondItem="ahV-FB-9kh" secondAttribute="bottom" constant="8" type="user" id="A8h-f4-2Lc"/>
+                            <constraint firstItem="ahV-FB-9kh" firstAttribute="trailing" secondItem="zRj-wH-zNm" secondAttribute="trailing" type="default" id="CuQ-HG-UcS"/>
+                            <constraint firstItem="xmJ-fZ-yxv" firstAttribute="leading" secondItem="2Gz-r9-oN1" secondAttribute="leading" type="user" id="ENJ-iC-K0P"/>
+                            <constraint firstItem="oyb-Sd-hbW" firstAttribute="leading" secondItem="C4d-mY-gpE" secondAttribute="leading" constant="8" type="user" id="LlC-7l-spc"/>
+                            <constraint firstItem="KbX-dH-Q7o" firstAttribute="leading" secondItem="Shz-L3-Zlw" secondAttribute="trailing" constant="8" type="user" id="OPk-Jm-V6j"/>
+                            <constraint firstItem="oyb-Sd-hbW" firstAttribute="centerY" secondItem="FYC-kf-dnl" secondAttribute="centerY" type="user" id="U3T-vS-1A6"/>
+                            <constraint firstItem="zRj-wH-zNm" firstAttribute="top" secondItem="C4d-mY-gpE" secondAttribute="top" constant="8" type="user" id="Vzc-h0-DF7"/>
+                            <constraint firstItem="FYC-kf-dnl" firstAttribute="top" secondItem="2Gz-r9-oN1" secondAttribute="bottom" constant="8" type="user" id="Xcj-Ev-VD2"/>
+                            <constraint firstItem="2Gz-r9-oN1" firstAttribute="top" secondItem="xmJ-fZ-yxv" secondAttribute="bottom" constant="8" type="user" id="ZHM-b9-fB5"/>
+                            <constraint firstItem="5D7-ek-GDB" firstAttribute="leading" secondItem="C4d-mY-gpE" secondAttribute="leading" constant="8" type="user" id="coW-PB-uka"/>
+                            <constraint firstItem="FYC-kf-dnl" firstAttribute="leading" secondItem="oyb-Sd-hbW" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="d5P-D2-pXd"/>
+                            <constraint firstItem="KbX-dH-Q7o" firstAttribute="top" secondItem="FYC-kf-dnl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gA5-7E-zAg"/>
+                            <constraint firstItem="2Gz-r9-oN1" firstAttribute="leading" secondItem="5D7-ek-GDB" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="hkm-3g-ezx"/>
+                            <constraint firstItem="6mP-QA-daM" firstAttribute="centerY" secondItem="xmJ-fZ-yxv" secondAttribute="centerY" type="user" id="lor-FL-N6J"/>
+                            <constraint firstAttribute="bottom" secondItem="KbX-dH-Q7o" secondAttribute="bottom" constant="8" type="user" id="m5s-e2-BV1"/>
+                            <constraint firstItem="6mP-QA-daM" firstAttribute="leading" secondItem="C4d-mY-gpE" secondAttribute="leading" constant="8" type="user" id="m6q-5s-VvR"/>
+                            <constraint firstItem="5D7-ek-GDB" firstAttribute="centerY" secondItem="2Gz-r9-oN1" secondAttribute="centerY" type="user" id="man-jK-86m"/>
+                            <constraint firstItem="xmJ-fZ-yxv" firstAttribute="leading" secondItem="6mP-QA-daM" secondAttribute="trailing" constant="8" type="user" id="oKJ-md-tB8"/>
+                            <constraint firstItem="Shz-L3-Zlw" firstAttribute="leading" secondItem="oyb-Sd-hbW" secondAttribute="leading" type="default" id="os5-Jx-T1H"/>
+                            <constraint firstItem="2Gz-r9-oN1" firstAttribute="leading" secondItem="FYC-kf-dnl" secondAttribute="leading" type="user" id="pcT-ZL-D7c"/>
+                            <constraint firstItem="zRj-wH-zNm" firstAttribute="leading" secondItem="C4d-mY-gpE" secondAttribute="leading" constant="8" type="user" id="txu-OI-YC4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Zzr-fD-CSd"/>
+                    <navigationItem key="navigationItem" title="Questions" id="Zzr-fD-CSd"/>
                     <connections>
-                        <outlet property="QuestionTextView" destination="tNW-RD-h9R" id="cG3-f7-pra"/>
-                        <outlet property="TextFieldOne" destination="goa-8Z-c8N" id="4hN-HI-god"/>
-                        <outlet property="TextFieldThree" destination="8zp-Fp-hxZ" id="1jS-N2-gRH"/>
-                        <outlet property="TextFieldTwo" destination="Obl-na-CRz" id="QUj-GM-GXb"/>
+                        <outlet property="AnswerSwitch1" destination="6mP-QA-daM" id="xQE-4E-dHX"/>
+                        <outlet property="AnswerSwitch2" destination="5D7-ek-GDB" id="AUE-Pw-uDc"/>
+                        <outlet property="AnswerSwitch3" destination="oyb-Sd-hbW" id="uzd-L6-6si"/>
+                        <outlet property="PreviousButtonOutlet" destination="Shz-L3-Zlw" id="Bi0-CN-KoU"/>
+                        <outlet property="QuestionTextView" destination="zRj-wH-zNm" id="Trb-cb-Jww"/>
+                        <outlet property="TextFieldOne" destination="xmJ-fZ-yxv" id="NDX-TJ-PmM"/>
+                        <outlet property="TextFieldThree" destination="FYC-kf-dnl" id="hAC-oC-xXK"/>
+                        <outlet property="TextFieldTwo" destination="2Gz-r9-oN1" id="fZP-HG-Xzy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ay3-3P-P6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,8 +261,15 @@
         <class className="CreateQuestionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateQuestionsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="AnswerSwitchFlipped1:"/>
+                <relationship kind="action" name="AnswerSwitchFlipped2:"/>
+                <relationship kind="action" name="AnswerSwitchFlipped3:"/>
                 <relationship kind="action" name="NextButton:"/>
                 <relationship kind="action" name="PreviousButton:"/>
+                <relationship kind="outlet" name="AnswerSwitch1" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="AnswerSwitch2" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="AnswerSwitch3" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="PreviousButtonOutlet" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="QuestionTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="TextFieldOne" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="TextFieldThree" candidateClass="UITextField"/>

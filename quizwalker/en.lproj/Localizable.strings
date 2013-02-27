@@ -1,0 +1,4 @@
+/*Input error*/
+"ALERT_MSG_INPUT_ERROR_TITLE" = "Input Error";
+"ALERT_MSG_INPUT_ERROR_MESSAGE" = "All four text fields must be filled out";
+"OK_BUTTON" = "Ok";

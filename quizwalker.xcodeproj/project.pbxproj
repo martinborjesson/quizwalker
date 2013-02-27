@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5B0B1DE816DD18B200749AEF /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE716DD18B200749AEF /* Question.m */; };
+		5B0B1DEA16DD360700749AEF /* CODialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE916DD360700749AEF /* CODialog.m */; };
+		5B12E76716DD5EDA00ACCA13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B12E76516DD5EDA00ACCA13 /* Localizable.strings */; };
 		5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */; };
 		5B391F6316DA129E00FEE581 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6216DA129E00FEE581 /* UIKit.framework */; };
 		5B391F6516DA129E00FEE581 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6416DA129E00FEE581 /* Foundation.framework */; };
 		5B391F6716DA129E00FEE581 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B391F6616DA129E00FEE581 /* CoreGraphics.framework */; };
-		5B391F6D16DA129E00FEE581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F6B16DA129E00FEE581 /* InfoPlist.strings */; };
 		5B391F6F16DA129E00FEE581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B391F6E16DA129E00FEE581 /* main.m */; };
 		5B391F7316DA129E00FEE581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B391F7216DA129E00FEE581 /* AppDelegate.m */; };
 		5B391F7516DA129E00FEE581 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F7416DA129E00FEE581 /* Default.png */; };
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		5B0B1DE616DD18B200749AEF /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		5B0B1DE716DD18B200749AEF /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		5B0B1DE916DD360700749AEF /* CODialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CODialog.m; sourceTree = "<group>"; };
+		5B0B1DEB16DD361400749AEF /* CODialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CODialog.h; sourceTree = "<group>"; };
+		5B12E76616DD5EDA00ACCA13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQuestionsViewController.h; sourceTree = "<group>"; };
 		5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionsViewController.m; sourceTree = "<group>"; };
 		5B391F5F16DA129E00FEE581 /* quizwalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quizwalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,7 +36,6 @@
 		5B391F6416DA129E00FEE581 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B391F6616DA129E00FEE581 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5B391F6A16DA129E00FEE581 /* quizwalker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "quizwalker-Info.plist"; sourceTree = "<group>"; };
-		5B391F6C16DA129E00FEE581 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B391F6E16DA129E00FEE581 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B391F7016DA129E00FEE581 /* quizwalker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quizwalker-Prefix.pch"; sourceTree = "<group>"; };
 		5B391F7116DA129E00FEE581 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		5B391F6816DA129E00FEE581 /* quizwalker */ = {
 			isa = PBXGroup;
 			children = (
+				5B0B1DEB16DD361400749AEF /* CODialog.h */,
+				5B0B1DE916DD360700749AEF /* CODialog.m */,
 				5B0B1DE516DD182500749AEF /* StorageObjects */,
 				5B391F7116DA129E00FEE581 /* AppDelegate.h */,
 				5B391F7216DA129E00FEE581 /* AppDelegate.m */,
@@ -114,8 +119,8 @@
 		5B391F6916DA129E00FEE581 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B12E76516DD5EDA00ACCA13 /* Localizable.strings */,
 				5B391F6A16DA129E00FEE581 /* quizwalker-Info.plist */,
-				5B391F6B16DA129E00FEE581 /* InfoPlist.strings */,
 				5B391F6E16DA129E00FEE581 /* main.m */,
 				5B391F7016DA129E00FEE581 /* quizwalker-Prefix.pch */,
 				5B391F7416DA129E00FEE581 /* Default.png */,
@@ -160,6 +165,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				sv,
 			);
 			mainGroup = 5B391F5616DA129E00FEE581;
 			productRefGroup = 5B391F6016DA129E00FEE581 /* Products */;
@@ -176,7 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B391F6D16DA129E00FEE581 /* InfoPlist.strings in Resources */,
+				5B12E76716DD5EDA00ACCA13 /* Localizable.strings in Resources */,
 				5B391F7516DA129E00FEE581 /* Default.png in Resources */,
 				5B391F7716DA129E00FEE581 /* Default@2x.png in Resources */,
 				5B391F7916DA129E00FEE581 /* Default-568h@2x.png in Resources */,
@@ -196,18 +202,19 @@
 				5B391F7F16DA129E00FEE581 /* FirstViewController.m in Sources */,
 				5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */,
 				5B0B1DE816DD18B200749AEF /* Question.m in Sources */,
+				5B0B1DEA16DD360700749AEF /* CODialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B391F6B16DA129E00FEE581 /* InfoPlist.strings */ = {
+		5B12E76516DD5EDA00ACCA13 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5B391F6C16DA129E00FEE581 /* en */,
+				5B12E76616DD5EDA00ACCA13 /* en */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		5B391F7A16DA129E00FEE581 /* MainStoryboard.storyboard */ = {

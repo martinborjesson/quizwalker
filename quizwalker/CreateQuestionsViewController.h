@@ -15,13 +15,27 @@
 
 - (IBAction)PreviousButton:(id)sender;
 - (IBAction)NextButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *PreviousButtonOutlet;
 
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldOne;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldTwo;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldThree;
 
+@property (weak, nonatomic) IBOutlet UISwitch *AnswerSwitch1;
+@property (weak, nonatomic) IBOutlet UISwitch *AnswerSwitch2;
+@property (weak, nonatomic) IBOutlet UISwitch *AnswerSwitch3;
+
 @property (nonatomic,strong) NSMutableArray *StoredQuestions;
+@property (nonatomic) int PositionInStoredQuestions;
+@property (nonatomic) int CorrectAnswer;
+
+- (IBAction)AnswerSwitchFlipped1:(id)sender;
+- (IBAction)AnswerSwitchFlipped2:(id)sender;
+- (IBAction)AnswerSwitchFlipped3:(id)sender;
 
 - (BOOL)stringNotEmpty:(NSString *)theString;
+- (void)writeDataFromStorage:(int) position;
+- (BOOL)insertObjectIntoStorage:(NSString *)NextOrPrevious;
+- (BOOL)updateObjectInStorage:(NSString *)NextOrPrevious;
 
 @end
