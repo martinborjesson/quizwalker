@@ -34,8 +34,9 @@
 - (IBAction)AnswerSwitchFlipped3:(id)sender;
 
 - (BOOL)stringNotEmpty:(NSString *)theString;
-- (void)writeDataFromStorage:(int) position;
-- (BOOL)insertObjectIntoStorage:(NSString *)NextOrPrevious;
-- (BOOL)updateObjectInStorage:(NSString *)NextOrPrevious;
+- (void)fillView:(int) position;
+- (void)clearView;
+- (void)insertObjectIntoStorage:(NSString *)NextOrPrevious;
+- (void)updateObjectInStorage:(int)Position;
 
 @end

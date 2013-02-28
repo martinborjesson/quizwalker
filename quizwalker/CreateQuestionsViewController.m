@@ -49,6 +49,9 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     self.PositionInStoredQuestions = 0;
     //set correct answer
     self.CorrectAnswer = 1;
+    //Create first object
+    [self insertObjectIntoStorage];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,55 +110,61 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 
 - (IBAction)PreviousButton:(id)sender
 {
-    //Try to store current text view data
-    if(self.PositionInStoredQuestions == self.StoredQuestions.count)
+    if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
     {
-        if([self insertObjectIntoStorage:@"previous"] == YES)
+        //Try to store current text view data
+        [self updateObjectInStorage:self.PositionInStoredQuestions];
+        self.PositionInStoredQuestions--;
+        if(self.PositionInStoredQuestions == 0)
         {
-            [self writeDataFromStorage:self.PositionInStoredQuestions];
-            if(self.PositionInStoredQuestions == 0)
-            {
-                [self.PreviousButtonOutlet setEnabled:NO];
-            }
+            [self.PreviousButtonOutlet setEnabled:NO];
         }
     }
     else
     {
-        if([self updateObjectInStorage:@"previous"] == YES)
-        {
-            [self writeDataFromStorage:self.PositionInStoredQuestions];
-            if(self.PositionInStoredQuestions == 0)
-            {
-                [self.PreviousButtonOutlet setEnabled:NO];
-            }
-        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
+                                                       delegate:nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 
 - (IBAction)NextButton:(id)sender
 {
-    //Create new object?
-    if(self.PositionInStoredQuestions == self.StoredQuestions.count)
+    if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
     {
-        //Insert the question and its parts into array IF everything is correctly filled in
-        [self insertObjectIntoStorage:@"next"];
-        [self.PreviousButtonOutlet setEnabled:YES];
+        //Create new object?
+        if(self.PositionInStoredQuestions == self.StoredQuestions.count)
+        {
+            [self clearView];
+            [self insertObjectIntoStorage];
+            self.PositionInStoredQuestions++;
+        }
+        else
+        {
+            [self updateObjectInStorage:self.PositionInStoredQuestions];
+            self.PositionInStoredQuestions++;
+            [self fillView:self.PositionInStoredQuestions];
+        }
+        if(self.PositionInStoredQuestions > 0)
+        {
+            [self.PreviousButtonOutlet setEnabled:YES];
+        }
     }
     else
     {
-        if([self updateObjectInStorage:@"next"] == YES)
-        {
-            //Just move one position forward
-            [self writeDataFromStorage:self.PositionInStoredQuestions];
-            if(self.PositionInStoredQuestions > 0)
-            {
-                [self.PreviousButtonOutlet setEnabled:YES];
-            }
-        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
+                                                       delegate:nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 
-- (void)writeDataFromStorage:(int)position
+- (void)fillView:(int)position
 {
     //Write data from StoredQuestions to textviews
     Question *CurrentQuestion = [self.StoredQuestions objectAtIndex:position];
@@ -185,86 +194,42 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     }
 }
 
-- (BOOL)updateObjectInStorage:(NSString *)NextOrPrevious
+- (void)updateObjectInStorage:(int)Position
 {
-    //Check input
-    if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
-    {
-        Question *CurrentQuestion = [[Question alloc] init];
-        CurrentQuestion.Question = self.QuestionTextView.text;
-        CurrentQuestion.Answer1 = self.TextFieldOne.text;
-        CurrentQuestion.Answer2 = self.TextFieldTwo.text;
-        CurrentQuestion.Answer3 = self.TextFieldThree.text;
-        CurrentQuestion.CorrectAnswer = self.CorrectAnswer;
-        [self.StoredQuestions replaceObjectAtIndex:self.PositionInStoredQuestions withObject:CurrentQuestion];
-        
-        if([NextOrPrevious isEqualToString:@"next"] == YES)
-        {
-            self.PositionInStoredQuestions++;
-        }
-        else
-        {
-            self.PositionInStoredQuestions--;
-        }
-
-        return YES;
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
-                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
-                                                       delegate:nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-        return NO;
-    }
+    //Update object
+    Question *CurrentQuestion = [[Question alloc] init];
+    CurrentQuestion.Question = self.QuestionTextView.text;
+    CurrentQuestion.Answer1 = self.TextFieldOne.text;
+    CurrentQuestion.Answer2 = self.TextFieldTwo.text;
+    CurrentQuestion.Answer3 = self.TextFieldThree.text;
+    CurrentQuestion.CorrectAnswer = self.CorrectAnswer;
+    [self.StoredQuestions replaceObjectAtIndex:Position withObject:CurrentQuestion];
 }
 
-- (BOOL)insertObjectIntoStorage:(NSString *)NextOrPrevious
+- (void)insertObjectIntoStorage
 {
-    if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
-    {
-        //Store question in array
-        Question *theQuestion = [[Question alloc] init];
-        theQuestion.Question = self.QuestionTextView.text;
-        theQuestion.Answer1 = self.TextFieldOne.text;
-        theQuestion.Answer2 = self.TextFieldTwo.text;
-        theQuestion.Answer3 = self.TextFieldThree.text;
-        theQuestion.CorrectAnswer = self.CorrectAnswer;
-        [self.StoredQuestions insertObject:theQuestion atIndex:self.StoredQuestions.count];
-        if([NextOrPrevious isEqualToString:@"next"] == YES)
-        {
-            self.PositionInStoredQuestions++;
-            
-            //Reset the text
-            self.QuestionTextView.text = [NSString stringWithFormat:@"%d.",self.StoredQuestions.count+1];
-            self.TextFieldOne.text = @"";
-            self.TextFieldTwo.text = @"";
-            self.TextFieldThree.text = @"";
-            
-            [self.AnswerSwitch1 setOn:YES animated:YES];
-            [self.AnswerSwitch2 setOn:NO animated:YES];
-            [self.AnswerSwitch3 setOn:NO animated:YES];
-            self.CorrectAnswer = 1;
-        }
-        else
-        {
-            self.PositionInStoredQuestions--;
-        }
-        return YES;
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
-                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
-                                                       delegate:nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-        return NO;
-    }
+    //Store question in array
+    Question *theQuestion = [[Question alloc] init];
+    theQuestion.Question = self.QuestionTextView.text;
+    theQuestion.Answer1 = self.TextFieldOne.text;
+    theQuestion.Answer2 = self.TextFieldTwo.text;
+    theQuestion.Answer3 = self.TextFieldThree.text;
+    theQuestion.CorrectAnswer = self.CorrectAnswer;
+    [self.StoredQuestions insertObject:theQuestion atIndex:self.StoredQuestions.count];
+}
+
+-(void)clearView
+{
+    //Reset the text
+    self.QuestionTextView.text = [NSString stringWithFormat:@"%d.",self.StoredQuestions.count+1];
+    self.TextFieldOne.text = @"";
+    self.TextFieldTwo.text = @"";
+    self.TextFieldThree.text = @"";
     
+    [self.AnswerSwitch1 setOn:YES animated:YES];
+    [self.AnswerSwitch2 setOn:NO animated:YES];
+    [self.AnswerSwitch3 setOn:NO animated:YES];
+    self.CorrectAnswer = 1;
 }
 
 - (BOOL)stringNotEmpty:(NSString *)theString
