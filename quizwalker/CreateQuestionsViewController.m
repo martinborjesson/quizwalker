@@ -17,6 +17,7 @@
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 97;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +55,27 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    //Remove keyboard on rotation
+    if(self.QuestionTextView.isFirstResponder)
+    {
+        [self.QuestionTextView resignFirstResponder];
+    }
+    if(self.TextFieldOne.isFirstResponder)
+    {
+        [self.TextFieldOne resignFirstResponder];
+    }
+    if(self.TextFieldTwo.isFirstResponder)
+    {
+        [self.TextFieldTwo resignFirstResponder];
+    }
+    if(self.TextFieldThree.isFirstResponder)
+    {
+        [self.TextFieldThree resignFirstResponder];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,7 +86,15 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 {
     //Animate to prevent keyboard from covering textfield
     CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y -= PORTRAIT_KEYBOARD_HEIGHT;
+
+    if(([UIApplication sharedApplication].statusBarOrientation == 1)||([UIApplication sharedApplication].statusBarOrientation == 2))
+    {
+        viewFrame.origin.y -= PORTRAIT_KEYBOARD_HEIGHT;
+    }
+    if(([UIApplication sharedApplication].statusBarOrientation == 3)||([UIApplication sharedApplication].statusBarOrientation == 4))
+    {
+        viewFrame.origin.y -= LANDSCAPE_KEYBOARD_HEIGHT;
+    }
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -79,7 +109,15 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 {
     //Animate to restore placement
     CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y += PORTRAIT_KEYBOARD_HEIGHT;
+    
+    if(([UIApplication sharedApplication].statusBarOrientation == 1)||([UIApplication sharedApplication].statusBarOrientation == 2))
+    {
+        viewFrame.origin.y += PORTRAIT_KEYBOARD_HEIGHT;
+    }
+    if(([UIApplication sharedApplication].statusBarOrientation == 3)||([UIApplication sharedApplication].statusBarOrientation == 4))
+    {
+        viewFrame.origin.y += LANDSCAPE_KEYBOARD_HEIGHT;
+    }
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -115,6 +153,8 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
         //Try to store current text view data
         [self updateObjectInStorage:self.PositionInStoredQuestions];
         self.PositionInStoredQuestions--;
+        //Get new view data
+        [self fillView:self.PositionInStoredQuestions];
         if(self.PositionInStoredQuestions == 0)
         {
             [self.PreviousButtonOutlet setEnabled:NO];
@@ -136,8 +176,9 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
     {
         //Create new object?
-        if(self.PositionInStoredQuestions == self.StoredQuestions.count)
+        if(self.PositionInStoredQuestions == self.StoredQuestions.count-1)
         {
+            [self updateObjectInStorage:self.PositionInStoredQuestions];
             [self clearView];
             [self insertObjectIntoStorage];
             self.PositionInStoredQuestions++;

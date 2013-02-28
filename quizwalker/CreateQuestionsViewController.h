@@ -36,7 +36,7 @@
 - (BOOL)stringNotEmpty:(NSString *)theString;
 - (void)fillView:(int) position;
 - (void)clearView;
-- (void)insertObjectIntoStorage:(NSString *)NextOrPrevious;
+- (void)insertObjectIntoStorage;
 - (void)updateObjectInStorage:(int)Position;
 
 @end
