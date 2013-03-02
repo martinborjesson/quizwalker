@@ -225,7 +225,13 @@
                             <constraint firstAttribute="trailing" secondItem="xmJ-fZ-yxv" secondAttribute="trailing" constant="8" type="user" id="yi9-uh-srz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Questions" id="Zzr-fD-CSd"/>
+                    <navigationItem key="navigationItem" title="Questions" id="VJN-DY-uYg">
+                        <barButtonItem key="rightBarButtonItem" title="Proceed" id="ukY-Ek-DcN">
+                            <connections>
+                                <segue destination="4Rv-5F-Zp1" kind="push" id="aE4-rV-zoQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="AnswerSwitch1" destination="6mP-QA-daM" id="xQE-4E-dHX"/>
                         <outlet property="AnswerSwitch2" destination="5D7-ek-GDB" id="AUE-Pw-uDc"/>
@@ -240,6 +246,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ay3-3P-P6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="799" y="-348"/>
+        </scene>
+        <!--Create Course View Controller - Create Course-->
+        <scene sceneID="Xa9-or-Zuu">
+            <objects>
+                <viewController id="4Rv-5F-Zp1" customClass="CreateCourseViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JaV-Np-la0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Course" id="OMe-y7-xGz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYN-ka-MY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="-348"/>
         </scene>
         <!--View Controller - selectFilter-->
         <scene sceneID="iyq-RX-Cdi">
@@ -258,6 +279,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="CreateCourseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateCourseViewController.h"/>
+        </class>
         <class className="CreateQuestionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateQuestionsViewController.h"/>
             <relationships>
