@@ -7,15 +7,13 @@
 //
 
 #import "CreateCourseViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface CreateCourseViewController ()
-
+    @property (nonatomic,strong) GMSMapView *mapView;
 @end
 
 @implementation CreateCourseViewController
-
-    GMSMapView *mapView_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,25 +27,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	//Create Google Maps View
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.8683
                                                             longitude:151.2086
-                                                                 zoom:6];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.myLocationEnabled = YES;
-    self.view = mapView_;
-    
-    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(-33.8683, 151.2086);
-    options.title = @"Sydney";
-    options.snippet = @"Australia";
-    [mapView_ addMarkerWithOptions:options];
+                                                                 zoom:16];
+
+    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    self.view = self.mapView;
+    //Start GPS
+    self.LocationManager = [[CLLocationManager alloc] init];
+    [self.LocationManager setDelegate:self];
+    [self.LocationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.LocationManager startUpdatingLocation];
+    //Load marker
+    GMSMarkerOptions *CurrentPosition = [[GMSMarkerOptions alloc] init];
+    CurrentPosition.icon = [UIImage imageNamed:@"normal_cyan.png"];
+    self.CurrentLocation = [self.mapView addMarkerWithOptions:CurrentPosition];
+    //Set time
+    self.Time = [NSDate date];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    //Get last location
+    CLLocationCoordinate2D loc = [locations.lastObject coordinate];
+    //update marker position
+    self.CurrentLocation.position = CLLocationCoordinate2DMake(loc.latitude,loc.longitude);
+    if([self.Time timeIntervalSinceNow] <= -15.00)
+    {
+        [self updatePosition];
+    }
+ }
+
+- (void)updatePosition
+{
+    //Update view area
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.5f];
+    [self.mapView animateToLocation:self.CurrentLocation.position];
+    [self.mapView animateToBearing:0];
+    [self.mapView animateToViewingAngle:0];
+    [CATransaction commit];
+    //Reset time
+    self.Time = [NSDate date];
+}
+    
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Error!");
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.LocationManager startUpdatingLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.LocationManager stopUpdatingLocation];
 }
 
 @end

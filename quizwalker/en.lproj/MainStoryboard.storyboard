@@ -251,11 +251,6 @@
         <scene sceneID="Xa9-or-Zuu">
             <objects>
                 <viewController id="4Rv-5F-Zp1" customClass="CreateCourseViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JaV-Np-la0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
                     <navigationItem key="navigationItem" title="Create Course" id="OMe-y7-xGz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYN-ka-MY2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface CreateCourseViewController : UIViewController
+@interface CreateCourseViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *LocationManager;
+@property (strong, nonatomic) id<GMSMarker> CurrentLocation;
+@property (strong, nonatomic) NSDate *Time;
 
 @end
