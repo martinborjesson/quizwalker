@@ -286,6 +286,40 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 97;
     return NO;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"GoToCreateCourse"])
+    {
+        //Store view data
+        [self updateObjectInStorage:self.PositionInStoredQuestions];
+        //Transfer questions to next viewcontroller
+        CreateCourseViewController *CreateCourse = [segue destinationViewController];
+        CreateCourse.Questions = self.StoredQuestions;
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"GoToCreateCourse"])
+    {
+        if([self stringNotEmpty:self.QuestionTextView.text]&&[self stringNotEmpty:self.TextFieldOne.text]&&[self stringNotEmpty:self.TextFieldTwo.text]&&[self stringNotEmpty:self.TextFieldThree.text])
+        {           
+            return YES;
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+                message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
+                delegate:nil
+                cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+                otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (IBAction)AnswerSwitchFlipped1:(id)sender
 {
     if([self.AnswerSwitch1 isOn] == YES)

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Question.h"
+#import "CreateCourseViewController.h"
 
 @interface CreateQuestionsViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>
 

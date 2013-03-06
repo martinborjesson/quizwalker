@@ -228,7 +228,7 @@
                     <navigationItem key="navigationItem" title="Questions" id="VJN-DY-uYg">
                         <barButtonItem key="rightBarButtonItem" title="Proceed" id="ukY-Ek-DcN">
                             <connections>
-                                <segue destination="4Rv-5F-Zp1" kind="push" id="aE4-rV-zoQ"/>
+                                <segue destination="4Rv-5F-Zp1" kind="push" identifier="GoToCreateCourse" id="aE4-rV-zoQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -251,7 +251,13 @@
         <scene sceneID="Xa9-or-Zuu">
             <objects>
                 <viewController id="4Rv-5F-Zp1" customClass="CreateCourseViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Create Course" id="OMe-y7-xGz"/>
+                    <navigationItem key="navigationItem" title="Create Course" id="OMe-y7-xGz">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="BJj-TB-IUI">
+                            <connections>
+                                <action selector="MenuButtonPressed:" destination="4Rv-5F-Zp1" id="OSK-xk-hf4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYN-ka-MY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,6 +282,9 @@
     <classes>
         <class className="CreateCourseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateCourseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="MenuButtonPressed:"/>
+            </relationships>
         </class>
         <class className="CreateQuestionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateQuestionsViewController.h"/>

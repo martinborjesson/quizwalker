@@ -11,6 +11,7 @@
 		5B0B1DEA16DD360700749AEF /* CODialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE916DD360700749AEF /* CODialog.m */; };
 		5B12E76716DD5EDA00ACCA13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B12E76516DD5EDA00ACCA13 /* Localizable.strings */; };
 		5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */; };
+		5B19B0E616E7CC5900D999AF /* CourseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19B0E516E7CC5900D999AF /* CourseNode.m */; };
 		5B35AC3116E246A200A9484C /* CreateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B35AC3016E246A200A9484C /* CreateCourseViewController.m */; };
 		5B35AC3316E24B2300A9484C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B35AC3216E24B2300A9484C /* GoogleMaps.framework */; };
 		5B35AC3516E24BAC00A9484C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B35AC3416E24BAC00A9484C /* GoogleMaps.bundle */; };
@@ -59,6 +60,11 @@
 		5B12E76616DD5EDA00ACCA13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQuestionsViewController.h; sourceTree = "<group>"; };
 		5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionsViewController.m; sourceTree = "<group>"; };
+		5B19B0E016E78FE400D999AF /* halmstad.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = halmstad.gpx; sourceTree = "<group>"; };
+		5B19B0E116E7905E00D999AF /* varberg.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = varberg.gpx; sourceTree = "<group>"; };
+		5B19B0E316E791A400D999AF /* laholm.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = laholm.gpx; sourceTree = "<group>"; };
+		5B19B0E416E7CC5900D999AF /* CourseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseNode.h; sourceTree = "<group>"; };
+		5B19B0E516E7CC5900D999AF /* CourseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseNode.m; sourceTree = "<group>"; };
 		5B35AC2F16E246A200A9484C /* CreateCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCourseViewController.h; sourceTree = "<group>"; };
 		5B35AC3016E246A200A9484C /* CreateCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCourseViewController.m; sourceTree = "<group>"; };
 		5B35AC3216E24B2300A9484C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -137,8 +143,21 @@
 			children = (
 				5B0B1DE616DD18B200749AEF /* Question.h */,
 				5B0B1DE716DD18B200749AEF /* Question.m */,
+				5B19B0E416E7CC5900D999AF /* CourseNode.h */,
+				5B19B0E516E7CC5900D999AF /* CourseNode.m */,
 			);
 			name = StorageObjects;
+			sourceTree = "<group>";
+		};
+		5B19B0E216E790AE00D999AF /* Gpx */ = {
+			isa = PBXGroup;
+			children = (
+				5B19B0E016E78FE400D999AF /* halmstad.gpx */,
+				5B19B0E116E7905E00D999AF /* varberg.gpx */,
+				5B19B0E316E791A400D999AF /* laholm.gpx */,
+			);
+			name = Gpx;
+			path = quizwalker;
 			sourceTree = "<group>";
 		};
 		5B38351A16E3B5D7007EE573 /* images */ = {
@@ -166,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				5B391F6816DA129E00FEE581 /* quizwalker */,
+				5B19B0E216E790AE00D999AF /* Gpx */,
 				5B391F6116DA129E00FEE581 /* Frameworks */,
 				5B391F6016DA129E00FEE581 /* Products */,
 			);
@@ -326,6 +346,7 @@
 				5B0B1DE816DD18B200749AEF /* Question.m in Sources */,
 				5B0B1DEA16DD360700749AEF /* CODialog.m in Sources */,
 				5B35AC3116E246A200A9484C /* CreateCourseViewController.m in Sources */,
+				5B19B0E616E7CC5900D999AF /* CourseNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

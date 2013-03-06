@@ -28,10 +28,9 @@
 {
     [super viewDidLoad];
 	//Create Google Maps View
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.8683
-                                                            longitude:151.2086
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:59.32893
+                                                            longitude:18.06419
                                                                  zoom:16];
-
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.view = self.mapView;
     //Start GPS
@@ -45,6 +44,8 @@
     self.CurrentLocation = [self.mapView addMarkerWithOptions:CurrentPosition];
     //Set time
     self.Time = [NSDate date];
+    //Create Node Array
+    self.Nodes = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,9 +58,12 @@
 {
     //Get last location
     CLLocationCoordinate2D loc = [locations.lastObject coordinate];
+    //Store coordinates
+    self.Latitude = loc.latitude;
+    self.Longitude = loc.longitude;
     //update marker position
     self.CurrentLocation.position = CLLocationCoordinate2DMake(loc.latitude,loc.longitude);
-    if([self.Time timeIntervalSinceNow] <= -15.00)
+    if([self.Time timeIntervalSinceNow] <= -8.00)
     {
         [self updatePosition];
     }
@@ -91,6 +95,75 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.LocationManager stopUpdatingLocation];
+}
+
+- (IBAction)MenuButtonPressed:(id)sender
+{
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Last Node" otherButtonTitles:@"New Question", @"New Waypoint", @"Save Course", nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex)
+    {
+        //Delete Node
+        case 0:
+            NSLog(@"Pressed button 'Delete Node'");
+            break;
+        //New Question
+        case 1:
+            NSLog(@"Pressed button 'New Question'");
+            [self createNewQuestion];
+            break;
+        //New Waypoint
+        case 2:
+            NSLog(@"Pressed button 'New Waypoint'");
+            [self createNewWaypoint];
+            break;
+        //Save Course
+        case 3:
+            NSLog(@"Pressed button 'Save Course'");
+            break;
+        //Cancel
+        case 4:
+            NSLog(@"Pressed button 'Cancel'");
+            break;
+
+        default:
+            break;
+    }
+}
+
+-(void) createNewQuestion
+{
+    CourseNode *node = [[CourseNode alloc] init];
+    node.Latitude = self.Latitude;
+    node.Longitude = self.Longitude;
+    node.IsQuestion = YES;
+    
+    GMSMarkerOptions *newQuestion = [[GMSMarkerOptions alloc] init];
+    newQuestion.icon = [UIImage imageNamed:@"pink_sign.png"];
+    newQuestion.position = CLLocationCoordinate2DMake(self.Latitude,self.Longitude);
+    node.Pointer = [self.mapView addMarkerWithOptions:newQuestion];
+    
+    [self.Nodes insertObject:node atIndex:[self.Nodes count]];
+}
+
+-(void) createNewWaypoint
+{
+    CourseNode *node = [[CourseNode alloc] init];
+    node.Latitude = self.Latitude;
+    node.Longitude = self.Longitude;
+    node.IsQuestion = NO;
+    
+    GMSMarkerOptions *newQuestion = [[GMSMarkerOptions alloc] init];
+    newQuestion.icon = [UIImage imageNamed:@"normal_pink.png"];
+    newQuestion.position = CLLocationCoordinate2DMake(self.Latitude,self.Longitude);
+    node.Pointer = [self.mapView addMarkerWithOptions:newQuestion];
+    
+    [self.Nodes insertObject:node atIndex:[self.Nodes count]];
 }
 
 @end
