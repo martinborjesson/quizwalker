@@ -33,6 +33,7 @@
                                                                  zoom:16];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.view = self.mapView;
+
     //Start GPS
     self.LocationManager = [[CLLocationManager alloc] init];
     [self.LocationManager setDelegate:self];
@@ -41,6 +42,7 @@
     //Load marker
     GMSMarkerOptions *CurrentPosition = [[GMSMarkerOptions alloc] init];
     CurrentPosition.icon = [UIImage imageNamed:@"normal_cyan.png"];
+    CurrentPosition.groundAnchor = CGPointMake(0.5, 0.5);
     self.CurrentLocation = [self.mapView addMarkerWithOptions:CurrentPosition];
     //Set time
     self.Time = [NSDate date];
@@ -111,32 +113,33 @@
         //Delete Node
         case 0:
             NSLog(@"Pressed button 'Delete Node'");
-            break;
+            [self deleteNode];
+        break;
         //New Question
         case 1:
             NSLog(@"Pressed button 'New Question'");
             [self createNewQuestion];
-            break;
+        break;
         //New Waypoint
         case 2:
             NSLog(@"Pressed button 'New Waypoint'");
             [self createNewWaypoint];
-            break;
+        break;
         //Save Course
         case 3:
             NSLog(@"Pressed button 'Save Course'");
-            break;
+        break;
         //Cancel
         case 4:
             NSLog(@"Pressed button 'Cancel'");
-            break;
+        break;
 
         default:
-            break;
+        break;
     }
 }
 
--(void) createNewQuestion
+-(void)createNewQuestion
 {
     CourseNode *node = [[CourseNode alloc] init];
     node.Latitude = self.Latitude;
@@ -146,24 +149,64 @@
     GMSMarkerOptions *newQuestion = [[GMSMarkerOptions alloc] init];
     newQuestion.icon = [UIImage imageNamed:@"pink_sign.png"];
     newQuestion.position = CLLocationCoordinate2DMake(self.Latitude,self.Longitude);
+    newQuestion.groundAnchor = CGPointMake(0.5, 0.7);
     node.Pointer = [self.mapView addMarkerWithOptions:newQuestion];
     
     [self.Nodes insertObject:node atIndex:[self.Nodes count]];
+    //Draw line?
+    if([self.Nodes count] > 1)
+    {
+        [self createPolyLine];
+    }
 }
 
--(void) createNewWaypoint
+-(void)createNewWaypoint
 {
     CourseNode *node = [[CourseNode alloc] init];
     node.Latitude = self.Latitude;
     node.Longitude = self.Longitude;
     node.IsQuestion = NO;
     
-    GMSMarkerOptions *newQuestion = [[GMSMarkerOptions alloc] init];
-    newQuestion.icon = [UIImage imageNamed:@"normal_pink.png"];
-    newQuestion.position = CLLocationCoordinate2DMake(self.Latitude,self.Longitude);
-    node.Pointer = [self.mapView addMarkerWithOptions:newQuestion];
+    GMSMarkerOptions *newWaypoint = [[GMSMarkerOptions alloc] init];
+    newWaypoint.icon = [UIImage imageNamed:@"normal_pink.png"];
+    newWaypoint.position = CLLocationCoordinate2DMake(self.Latitude,self.Longitude);
+    newWaypoint.groundAnchor = CGPointMake(0.5, 0.5);
+    node.Pointer = [self.mapView addMarkerWithOptions:newWaypoint];
     
     [self.Nodes insertObject:node atIndex:[self.Nodes count]];
+    //Draw line?
+    if([self.Nodes count] > 1)
+    {
+        [self createPolyLine];
+    }
+}
+
+-(void)createPolyLine
+{
+    //Create Polyline
+    GMSPolylineOptions *Line = [GMSPolylineOptions options];
+    GMSMutablePath *path = [GMSMutablePath path];
+    for(int counter=0;counter < [self.Nodes count];counter++)
+    {
+        //Line data
+        [path addCoordinate:CLLocationCoordinate2DMake([[self.Nodes objectAtIndex:counter] Latitude], [[self.Nodes objectAtIndex:counter] Longitude])];
+    }
+    Line.path = path;
+    Line.color = [[UIColor alloc]initWithRed:(80.0/255.0) green:(88.0/255.0) blue:(80.0/255.0) alpha:1];
+    Line.width = 2.0;
+    [self.mapView addPolylineWithOptions:Line];
+}
+
+-(void)deleteNode
+{
+    CourseNode *remove = [self.Nodes objectAtIndex:self.Nodes.count-1];
+    [remove.Pointer remove];
+    [self.Nodes removeLastObject];
+    //Change Polyline
+    if([self.Nodes count] > 1)
+    {
+        [self createPolyLine];
+    }
 }
 
 @end
