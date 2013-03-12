@@ -2,3 +2,9 @@
 "ALERT_MSG_INPUT_ERROR_TITLE" = "Input Error";
 "ALERT_MSG_INPUT_ERROR_MESSAGE" = "All four text fields must be filled out";
 "OK_BUTTON" = "Ok";
+"NEW_USER_TITLE" = "Create or Login User";
+"USER" = "Username";
+"PASSWORD" = "Password";
+"EMAIL" = "E-mail";
+"INPUT_ERROR_BLANK_STRING" = "Blank input, try again";
+"INPUT_ERROR_WRONG_EMAIL" = "Email is missing @";

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CODialog.h"
 
 @interface FirstViewController : UIViewController
+
+@property (nonatomic,strong) CODialog *Dialog;
 
 @end

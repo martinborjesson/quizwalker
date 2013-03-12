@@ -65,7 +65,7 @@
     self.Longitude = loc.longitude;
     //update marker position
     self.CurrentLocation.position = CLLocationCoordinate2DMake(loc.latitude,loc.longitude);
-    if([self.Time timeIntervalSinceNow] <= -8.00)
+    if([self.Time timeIntervalSinceNow] <= -4.00)
     {
         [self updatePosition];
     }
