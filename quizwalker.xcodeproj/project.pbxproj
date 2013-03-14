@@ -12,6 +12,7 @@
 		5B12E76716DD5EDA00ACCA13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B12E76516DD5EDA00ACCA13 /* Localizable.strings */; };
 		5B19502816DA606600FD1C1F /* CreateQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */; };
 		5B19B0E616E7CC5900D999AF /* CourseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19B0E516E7CC5900D999AF /* CourseNode.m */; };
+		5B227E8B16F1CCF800A50F69 /* SaveCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B227E8A16F1CCF800A50F69 /* SaveCourseViewController.m */; };
 		5B35AC3116E246A200A9484C /* CreateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B35AC3016E246A200A9484C /* CreateCourseViewController.m */; };
 		5B35AC3316E24B2300A9484C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B35AC3216E24B2300A9484C /* GoogleMaps.framework */; };
 		5B35AC3516E24BAC00A9484C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B35AC3416E24BAC00A9484C /* GoogleMaps.bundle */; };
@@ -51,6 +52,8 @@
 		5B391F7916DA129E00FEE581 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B391F7816DA129E00FEE581 /* Default-568h@2x.png */; };
 		5B391F7F16DA129E00FEE581 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B391F7E16DA129E00FEE581 /* FirstViewController.m */; };
 		5B94215C16EF7D6000EA7D67 /* NetCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B94215B16EF7D6000EA7D67 /* NetCommunication.m */; };
+		5B9C38DD16F1068B00555F7A /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C38DC16F1068B00555F7A /* FilterViewController.m */; };
+		5B9C38E016F106B300555F7A /* FollowCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C38DF16F106B300555F7A /* FollowCourseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,8 @@
 		5B19B0E316E791A400D999AF /* laholm.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = laholm.gpx; sourceTree = "<group>"; };
 		5B19B0E416E7CC5900D999AF /* CourseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseNode.h; sourceTree = "<group>"; };
 		5B19B0E516E7CC5900D999AF /* CourseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseNode.m; sourceTree = "<group>"; };
+		5B227E8916F1CCF800A50F69 /* SaveCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveCourseViewController.h; sourceTree = "<group>"; };
+		5B227E8A16F1CCF800A50F69 /* SaveCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveCourseViewController.m; sourceTree = "<group>"; };
 		5B35AC2F16E246A200A9484C /* CreateCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCourseViewController.h; sourceTree = "<group>"; };
 		5B35AC3016E246A200A9484C /* CreateCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCourseViewController.m; sourceTree = "<group>"; };
 		5B35AC3216E24B2300A9484C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -112,6 +117,10 @@
 		5B391F7E16DA129E00FEE581 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		5B94215A16EF7D6000EA7D67 /* NetCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCommunication.h; sourceTree = "<group>"; };
 		5B94215B16EF7D6000EA7D67 /* NetCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetCommunication.m; sourceTree = "<group>"; };
+		5B9C38DB16F1068B00555F7A /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		5B9C38DC16F1068B00555F7A /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		5B9C38DE16F106B300555F7A /* FollowCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowCourseViewController.h; sourceTree = "<group>"; };
+		5B9C38DF16F106B300555F7A /* FollowCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowCourseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,12 +242,18 @@
 				5B0B1DE916DD360700749AEF /* CODialog.m */,
 				5B0B1DE516DD182500749AEF /* StorageObjects */,
 				5B35AC7216E285A600A9484C /* MainStoryboard.storyboard */,
+				5B9C38DB16F1068B00555F7A /* FilterViewController.h */,
+				5B9C38DC16F1068B00555F7A /* FilterViewController.m */,
+				5B9C38DE16F106B300555F7A /* FollowCourseViewController.h */,
+				5B9C38DF16F106B300555F7A /* FollowCourseViewController.m */,
 				5B391F7116DA129E00FEE581 /* AppDelegate.h */,
 				5B391F7216DA129E00FEE581 /* AppDelegate.m */,
 				5B35AC2F16E246A200A9484C /* CreateCourseViewController.h */,
 				5B35AC3016E246A200A9484C /* CreateCourseViewController.m */,
 				5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */,
 				5B19502716DA606600FD1C1F /* CreateQuestionsViewController.m */,
+				5B227E8916F1CCF800A50F69 /* SaveCourseViewController.h */,
+				5B227E8A16F1CCF800A50F69 /* SaveCourseViewController.m */,
 				5B391F7D16DA129E00FEE581 /* FirstViewController.h */,
 				5B391F7E16DA129E00FEE581 /* FirstViewController.m */,
 				5B94215A16EF7D6000EA7D67 /* NetCommunication.h */,
@@ -353,6 +368,9 @@
 				5B35AC3116E246A200A9484C /* CreateCourseViewController.m in Sources */,
 				5B19B0E616E7CC5900D999AF /* CourseNode.m in Sources */,
 				5B94215C16EF7D6000EA7D67 /* NetCommunication.m in Sources */,
+				5B9C38DD16F1068B00555F7A /* FilterViewController.m in Sources */,
+				5B9C38E016F106B300555F7A /* FollowCourseViewController.m in Sources */,
+				5B227E8B16F1CCF800A50F69 /* SaveCourseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +422,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -431,7 +449,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";

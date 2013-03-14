@@ -10,15 +10,18 @@
 
 @class NetCommunication;
 
-@protocol ServerAnswerDelegate <NSObject>
+@protocol NetCommunicationDelegate <NSObject>
 
 -(void)answerFromServer:(NetCommunication *)controller serverAnswer:(NSString *)answer;
 
 @end
 
+@interface NetCommunication : NSObject <NSURLConnectionDelegate>
 
-@interface NetCommunication : NSObject
+@property (retain, nonatomic) NSURLConnection *Connection;
+@property (weak, nonatomic) id<NetCommunicationDelegate> delegate;
+@property (nonatomic,strong) NSMutableData *ReturnData;
 
-@property(weak, nonatomic) id<ServerAnswerDelegate> delegate;
+-(void) postMessageToServer:(BOOL)encrypted FileName:(NSString *)filename Parameters:(NSString *)para;
 
 @end

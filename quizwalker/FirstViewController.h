@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CODialog.h"
+#import "NetCommunication.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <NetCommunicationDelegate>
 
 @property (nonatomic,strong) CODialog *Dialog;
+@property (nonatomic,strong) NSString *username;
+@property (nonatomic,strong) NSString *password;
+@property (nonatomic,strong) NSString *email;
 
 @end

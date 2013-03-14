@@ -21,17 +21,26 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	// Open Dialog if it's the first time
-    self.Dialog = [CODialog dialogWithWindow:self.view.window];
-    [self.Dialog resetLayout];
-    
-    self.Dialog.dialogStyle = CODialogStyleDefault;
-    self.Dialog.title = NSLocalizedString(@"NEW_USER_TITLE",nil);
-    [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"USER",nil) secure:NO];
-    [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"PASSWORD",nil) secure:YES];
-    [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"EMAIL",nil) secure:NO];
-    [self.Dialog addButtonWithTitle:NSLocalizedString(@"OK_BUTTON", nil) target:self selector:@selector(userDataEntered)];
-    [self.Dialog showOrUpdateAnimated:YES];    
+    if([defaults objectForKey:@"username"] == nil)
+    {
+        self.Dialog = [CODialog dialogWithWindow:self.view.window];
+        [self.Dialog resetLayout];    
+        self.Dialog.dialogStyle = CODialogStyleDefault;
+        self.Dialog.title = NSLocalizedString(@"NEW_USER_TITLE",nil);
+        [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"USER",nil) secure:NO];
+        [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"PASSWORD",nil) secure:YES];
+        [self.Dialog addTextFieldWithPlaceholder:NSLocalizedString(@"EMAIL",nil) secure:NO];
+        [self.Dialog addButtonWithTitle:NSLocalizedString(@"OK_BUTTON", nil) target:self selector:@selector(userDataEntered)];
+        [self.Dialog showOrUpdateAnimated:YES];
+    }
+    else
+    {
+        self.username = [[NSString alloc] initWithString:[defaults stringForKey:@"username"]];
+        self.password = [[NSString alloc] initWithString:[defaults stringForKey:@"password"]];
+        self.email = [[NSString alloc] initWithString:[defaults stringForKey:@"email"]];
+    }
 }
 
 -(void)userDataEntered
@@ -45,7 +54,7 @@
     {
         if([self isEmailStringCorrect:email] == YES)
         {
-            [self.Dialog hideAnimated:YES];
+            //Send user data to server
             [self sendUserData:user Password:pass Email:email];
         }
         else
@@ -65,7 +74,12 @@
 
 -(void)sendUserData:(NSString *)username Password:(NSString *)password Email:(NSString *)email
 {
-    
+    NetCommunication *connector = [[NetCommunication alloc] init];
+    connector.delegate = self;
+    [connector postMessageToServer:YES FileName:@"test_save_user.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@&email=%@",username,password,email]];
+    self.username = [[NSString alloc] initWithString:username];
+    self.password = [[NSString alloc] initWithString:password];
+    self.email = [[NSString alloc] initWithString:email];
 }
 
 -(BOOL)isStringBlank:(NSString *)stringToCheck
@@ -99,6 +113,25 @@
         }
     }
     return NO;
+}
+
+-(void)answerFromServer:(NetCommunication *)controller serverAnswer:(NSString *)answer
+{
+    if([answer isEqualToString:@"New user created"]||[answer isEqualToString:@"Right password"])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.username forKey:@"username"];
+        [defaults setObject:self.password forKey:@"password"];
+        [defaults setObject:self.email forKey:@"email"];
+        [defaults synchronize];
+        [self.Dialog hideAnimated:YES];
+    }
+    if([answer isEqualToString:@"Wrong password"])
+    {
+        //Error message
+        self.Dialog.title = NSLocalizedString(@"INPUT_ERROR_WRONG_PASSWORD", nil);
+        [self.Dialog showOrUpdateAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

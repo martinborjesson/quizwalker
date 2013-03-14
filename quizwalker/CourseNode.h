@@ -13,7 +13,7 @@
 
 @property (nonatomic) double Latitude;
 @property (nonatomic) double Longitude;
-@property (nonatomic) BOOL IsQuestion;
+@property (nonatomic) BOOL isQuestion;
 @property (strong, nonatomic) id<GMSMarker> Pointer;
 
 @end

@@ -128,6 +128,18 @@
         //Save Course
         case 3:
             NSLog(@"Pressed button 'Save Course'");
+            //Is the anything to save?
+            if([self.Nodes count] == 0)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+                    message: NSLocalizedString(@"NO_NODES_ERROR_MESSAGE",nil)
+                    delegate:nil
+                    cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+                    otherButtonTitles:nil];
+                [alert show];
+                break;
+            }
+            [self performSegueWithIdentifier:@"saveCourseSegue" sender:self];
         break;
         //Cancel
         case 4:
@@ -139,12 +151,41 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"saveCourseSegue"])
+    {
+
+    }
+}
+
 -(void)createNewQuestion
 {
+    if([self numberOfQuestionsLeft] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"NO_MORE_QUESTIONS_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([self.Nodes count] == 60)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"MAXIMUM_NODES_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
     CourseNode *node = [[CourseNode alloc] init];
     node.Latitude = self.Latitude;
     node.Longitude = self.Longitude;
-    node.IsQuestion = YES;
+    node.isQuestion = YES;
     
     GMSMarkerOptions *newQuestion = [[GMSMarkerOptions alloc] init];
     newQuestion.icon = [UIImage imageNamed:@"pink_sign.png"];
@@ -156,16 +197,48 @@
     //Draw line?
     if([self.Nodes count] > 1)
     {
+        if(self.MapConnector != nil)
+            [self.MapConnector remove];
         [self createPolyLine];
     }
 }
 
 -(void)createNewWaypoint
 {
+    if([self numberOfQuestionsLeft] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"NO_MORE_QUESTIONS_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([self.Nodes count] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"FIRST_QUESTION_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([self.Nodes count] == 60)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"MAXIMUM_NODES_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     CourseNode *node = [[CourseNode alloc] init];
     node.Latitude = self.Latitude;
     node.Longitude = self.Longitude;
-    node.IsQuestion = NO;
+    node.isQuestion = NO;
     
     GMSMarkerOptions *newWaypoint = [[GMSMarkerOptions alloc] init];
     newWaypoint.icon = [UIImage imageNamed:@"normal_pink.png"];
@@ -177,8 +250,23 @@
     //Draw line?
     if([self.Nodes count] > 1)
     {
+        if(self.MapConnector != nil)
+            [self.MapConnector remove];
         [self createPolyLine];
     }
+}
+
+-(int)numberOfQuestionsLeft
+{
+    int numberOfQuestions=0;
+    for(int counter=0;counter < [self.Nodes count];counter++)
+    {
+        if([[self.Nodes objectAtIndex:counter] isQuestion] == YES)
+        {
+            numberOfQuestions++;
+        }
+    }
+    return ([self.Questions count]-numberOfQuestions);
 }
 
 -(void)createPolyLine
@@ -194,11 +282,24 @@
     Line.path = path;
     Line.color = [[UIColor alloc]initWithRed:(80.0/255.0) green:(88.0/255.0) blue:(80.0/255.0) alpha:1];
     Line.width = 2.0;
-    [self.mapView addPolylineWithOptions:Line];
+    self.MapConnector = [self.mapView addPolylineWithOptions:Line];
 }
 
 -(void)deleteNode
 {
+    if([self.Nodes count] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+            message: NSLocalizedString(@"NO_NODES_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    //Erase Polyline
+    if(self.MapConnector != nil)
+        [self.MapConnector remove];
     CourseNode *remove = [self.Nodes objectAtIndex:self.Nodes.count-1];
     [remove.Pointer remove];
     [self.Nodes removeLastObject];

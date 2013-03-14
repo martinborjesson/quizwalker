@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) CLLocationManager *LocationManager;
 @property (strong, nonatomic) id<GMSMarker> CurrentLocation;
+@property (strong,nonatomic) id<GMSPolyline> MapConnector;
 @property (strong, nonatomic) NSDate *Time;
 
 @property (nonatomic,strong) NSMutableArray *Questions;

@@ -162,10 +162,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 97;
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
-                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
-                                                       delegate:nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
-                                              otherButtonTitles:nil];
+            message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
+            delegate:nil
+            cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+            otherButtonTitles:nil];
         [alert show];
     }
 }
@@ -196,10 +196,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 97;
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
-                                                        message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
-                                                       delegate:nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
-                                              otherButtonTitles:nil];
+                message: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_MESSAGE",nil)
+                delegate:nil
+                cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
+                otherButtonTitles:nil];
         [alert show];
     }
 }
