@@ -269,6 +269,10 @@ CODialogSynth(highlightedIndex)
       
       UITextField *field = [self.textFields objectAtIndex:i];
       field.frame = fieldFrame;
+      //Modification
+      field.autocorrectionType = UITextAutocorrectionTypeNo;
+      field.autocapitalizationType = UITextAutocapitalizationTypeNone;
+      //End
       field.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
       
       [newContentView addSubview:field];

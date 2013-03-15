@@ -76,7 +76,7 @@
 {
     NetCommunication *connector = [[NetCommunication alloc] init];
     connector.delegate = self;
-    [connector postMessageToServer:YES FileName:@"test_save_user.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@&email=%@",username,password,email]];
+    [connector postMessageToServerAsync:YES FileName:@"test_save_user.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@&email=%@",username,password,email]];
     self.username = [[NSString alloc] initWithString:username];
     self.password = [[NSString alloc] initWithString:password];
     self.email = [[NSString alloc] initWithString:email];
@@ -115,7 +115,7 @@
     return NO;
 }
 
--(void)answerFromServer:(NetCommunication *)controller serverAnswer:(NSString *)answer
+-(void)answerFromServer:(NetCommunication *)controller callToServer:(NSString *)call numberOfTimes:(int)number serverAnswer:(NSString *)answer
 {
     if([answer isEqualToString:@"New user created"]||[answer isEqualToString:@"Right password"])
     {

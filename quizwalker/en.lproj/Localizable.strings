@@ -13,6 +13,7 @@
 "NO_MORE_QUESTIONS_ERROR_MESSAGE" = "No more Questions left";
 "FIRST_QUESTION_ERROR_MESSAGE" = "First Node must be a Question";
 "MAXIMUM_NODES_ERROR_MESSAGE" = "Maximum number of Nodes Reached";
+"INPUT_ERROR_BLANK_COURSE_NAME" = "The Course Name is Empty";
 "SUBJECT_AN" = "Anything";
 "SUBJECT_ST" = "Science and Technology";
 "SUBJECT_SE" = "Sport and Entertainment";

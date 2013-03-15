@@ -155,7 +155,8 @@
 {
     if ([[segue identifier] isEqualToString:@"saveCourseSegue"])
     {
-
+        [[segue destinationViewController] setQuestions:self.Questions];
+        [[segue destinationViewController] setNodes:self.Nodes];
     }
 }
 

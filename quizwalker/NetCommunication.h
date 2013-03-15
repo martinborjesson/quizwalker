@@ -12,7 +12,7 @@
 
 @protocol NetCommunicationDelegate <NSObject>
 
--(void)answerFromServer:(NetCommunication *)controller serverAnswer:(NSString *)answer;
+-(void)answerFromServer:(NetCommunication *)controller callToServer:(NSString *)call numberOfTimes:(int)number serverAnswer:(NSString *)answer;
 
 @end
 
@@ -21,7 +21,10 @@
 @property (retain, nonatomic) NSURLConnection *Connection;
 @property (weak, nonatomic) id<NetCommunicationDelegate> delegate;
 @property (nonatomic,strong) NSMutableData *ReturnData;
+@property (nonatomic,strong) NSString *callToServer;
+@property (nonatomic,strong) NSString *previousCallToServer;
+@property (nonatomic) int callCounter;
 
--(void) postMessageToServer:(BOOL)encrypted FileName:(NSString *)filename Parameters:(NSString *)para;
-
+-(void) postMessageToServerAsync:(BOOL)encrypted FileName:(NSString *)filename Parameters:(NSString *)para;
+- (NSString *)postMessageToServerSync:(NSString *)filename Parameters:(NSString *)para;
 @end

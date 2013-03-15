@@ -65,10 +65,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Fk0-hI-s4r" firstAttribute="centerX" secondItem="NnY-IE-3ct" secondAttribute="centerX" type="default" id="6ZO-5g-14U"/>
                             <constraint firstItem="fLr-Od-UPN" firstAttribute="top" secondItem="hBj-v7-8QK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8LQ-V4-waD"/>
-                            <constraint firstItem="Fk0-hI-s4r" firstAttribute="top" secondItem="NnY-IE-3ct" secondAttribute="top" constant="144" id="AbA-Qo-pNV"/>
+                            <constraint firstItem="Fk0-hI-s4r" firstAttribute="top" secondItem="NnY-IE-3ct" secondAttribute="top" constant="110" id="CTs-p5-hw6"/>
                             <constraint firstItem="Fk0-hI-s4r" firstAttribute="leading" secondItem="hBj-v7-8QK" secondAttribute="leading" type="default" id="dfM-j1-hTy"/>
-                            <constraint firstItem="fLr-Od-UPN" firstAttribute="centerX" secondItem="NnY-IE-3ct" secondAttribute="centerX" type="default" id="eOB-Dl-Xad"/>
                             <constraint firstItem="fLr-Od-UPN" firstAttribute="trailing" secondItem="hBj-v7-8QK" secondAttribute="trailing" type="default" id="fza-yg-iQC"/>
                             <constraint firstItem="Fk0-hI-s4r" firstAttribute="trailing" secondItem="hBj-v7-8QK" secondAttribute="trailing" type="default" id="pdd-C4-VK3"/>
                             <constraint firstItem="fLr-Od-UPN" firstAttribute="leading" secondItem="hBj-v7-8QK" secondAttribute="leading" type="default" id="s8J-YC-KhO"/>
@@ -281,19 +281,18 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAO-7g-fGZ">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Course Subject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFv-Lw-01i">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-Ft-fzU">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="s1y-3V-dSn"/>
-                                </constraints>
-                            </pickerView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-Ft-fzU"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-cY-KPM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="uI4-Mh-aI9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Save Course">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -307,8 +306,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz1-Qe-DfD">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Z1P-Z1-gAT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Return to Map">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -322,27 +324,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rz1-Qe-DfD" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="53L-1m-gTg"/>
+                            <constraint firstItem="rz1-Qe-DfD" firstAttribute="top" secondItem="4Zw-cY-KPM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5m2-mD-me1"/>
                             <constraint firstItem="rz1-Qe-DfD" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BAv-Kv-lxR"/>
-                            <constraint firstItem="rz1-Qe-DfD" firstAttribute="top" secondItem="4Zw-cY-KPM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Bv5-Ls-ItE"/>
                             <constraint firstItem="ecp-Ft-fzU" firstAttribute="centerY" secondItem="w8X-QH-EqO" secondAttribute="centerY" type="default" id="CAF-Ue-Gue"/>
                             <constraint firstAttribute="trailing" secondItem="4Zw-cY-KPM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eof-OB-oW4"/>
                             <constraint firstAttribute="trailing" secondItem="RFv-Lw-01i" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="G79-Ps-YQL"/>
+                            <constraint firstItem="4Zw-cY-KPM" firstAttribute="top" secondItem="ecp-Ft-fzU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LCW-9R-7Ir"/>
                             <constraint firstItem="RFv-Lw-01i" firstAttribute="top" secondItem="hAO-7g-fGZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="MNj-Fo-5QS"/>
                             <constraint firstItem="dg8-Ab-2cE" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NAe-Sh-IDf"/>
                             <constraint firstItem="4Zw-cY-KPM" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ogx-Hi-xcY"/>
                             <constraint firstItem="ecp-Ft-fzU" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" type="default" id="T0L-3d-AbU"/>
-                            <constraint firstAttribute="bottom" secondItem="rz1-Qe-DfD" secondAttribute="bottom" constant="14" id="Vs3-1T-Kam"/>
                             <constraint firstItem="hAO-7g-fGZ" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XUF-Cj-Cgc"/>
                             <constraint firstItem="RFv-Lw-01i" firstAttribute="leading" secondItem="w8X-QH-EqO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YYw-rq-Q8Q"/>
                             <constraint firstItem="hAO-7g-fGZ" firstAttribute="top" secondItem="dg8-Ab-2cE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dOn-0T-OzD"/>
                             <constraint firstAttribute="trailing" secondItem="dg8-Ab-2cE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fcN-xc-mnw"/>
                             <constraint firstAttribute="trailing" secondItem="rz1-Qe-DfD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kWa-zn-OIL"/>
-                            <constraint firstItem="ecp-Ft-fzU" firstAttribute="trailing" secondItem="w8X-QH-EqO" secondAttribute="trailing" type="default" id="oGk-Dm-g9z"/>
                             <constraint firstAttribute="trailing" secondItem="hAO-7g-fGZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="src-5h-3hN"/>
                             <constraint firstItem="dg8-Ab-2cE" firstAttribute="top" secondItem="w8X-QH-EqO" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vaX-TW-kQa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CancelButton" destination="rz1-Qe-DfD" id="2zP-9c-9tI"/>
+                        <outlet property="SaveButton" destination="4Zw-cY-KPM" id="Ml4-cE-VY2"/>
                         <outlet property="SaveCourseTextField" destination="hAO-7g-fGZ" id="ImS-fj-kx2"/>
                         <outlet property="SubjectPicker" destination="ecp-Ft-fzU" id="aJ5-4t-QN0"/>
                     </connections>
@@ -390,7 +394,6 @@
                         <constraints>
                             <constraint firstItem="hlB-Ak-scy" firstAttribute="leading" secondItem="gmz-fy-tCT" secondAttribute="leading" type="default" id="3Hb-lI-NGd"/>
                             <constraint firstItem="yku-f4-Qhq" firstAttribute="leading" secondItem="gmz-fy-tCT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Hei-d1-auL"/>
-                            <constraint firstItem="hlB-Ak-scy" firstAttribute="trailing" secondItem="gmz-fy-tCT" secondAttribute="trailing" type="default" id="LQF-Mu-QsC"/>
                             <constraint firstAttribute="trailing" secondItem="yku-f4-Qhq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SQp-bk-pfb"/>
                             <constraint firstItem="hlB-Ak-scy" firstAttribute="top" secondItem="SIS-kb-TVO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WLU-Uw-ME1"/>
                             <constraint firstItem="yku-f4-Qhq" firstAttribute="top" secondItem="hlB-Ak-scy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zgk-ka-u75"/>
@@ -529,6 +532,8 @@
             <relationships>
                 <relationship kind="action" name="CancelButtonPressed:"/>
                 <relationship kind="action" name="SaveButtonPressed:"/>
+                <relationship kind="outlet" name="CancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="SaveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="SaveCourseTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="SubjectPicker" candidateClass="UIPickerView"/>
             </relationships>
