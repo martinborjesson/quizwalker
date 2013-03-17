@@ -24,6 +24,8 @@
 @property (nonatomic,strong) NSString *CourseName;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
+@property (nonatomic,strong) NSString *oldname;
+@property (nonatomic,strong) NSString *ReturnedValue;
 @property (nonatomic) int SubjectSelection;
 
 @property (nonatomic,strong) NetCommunication *Connector;

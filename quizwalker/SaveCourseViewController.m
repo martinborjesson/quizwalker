@@ -94,11 +94,11 @@
 
 -(void)answerFromServer:(NetCommunication *)controller callToServer:(NSString *)call numberOfTimes:(int)number serverAnswer:(NSString *)answer
 {
-    NSLog(@"ServerCall:%@ NumberOfTimes:%d ServerAnswer:%@",call,number,answer);
+    NSLog(@"ServerCall:%@ NumberOfTimes:%d ServerAnswer:'%@'",call,number,answer);
 
     if([call isEqualToString:@"test_login.php"])
     {
-        if([answer isEqualToString:@"perfect"])
+        if([answer isEqualToString:@"perfect\t"])
         {
             NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveCourse) object:nil];
             [self.Queue addOperation:operation];
@@ -106,41 +106,68 @@
     }
     if([call isEqualToString:@"test_logoff.php"])
     {
-        if([answer isEqualToString:@"perfect"])
+        if([answer isEqualToString:@"perfect\t"])
         {
-            
-        }
+            //Turn oon buttons
+            [self.SaveButton setEnabled:YES];
+            [self.SubjectPicker setUserInteractionEnabled:YES];
+        
     }
 }
 
 -(void)saveCourse
 {
     int counter=0,lineOrder=0,spaceCounter,questionCounter=0;
-    BOOL first=YES;
-    NSString *parameters=@"";
+    Boolean first = true;
+    NSString *parameters = @"";
+    NSString *subject = @"";
+    NSString *retur=@"";
+    self.oldname=@"";
     
+    NSLog(@"%d",self.SubjectSelection);
+    //Set subject info
+    switch (self.SubjectSelection)
+    {
+        case 0:
+            subject = [subject stringByAppendingString:@"AN"];
+        break;
+        case 1:
+            subject = [subject stringByAppendingString:@"ST"];
+        break;
+        case 2:
+            subject = [subject stringByAppendingString:@"SE"];
+        break;
+        case 3:
+            subject = [subject stringByAppendingString:@"HP"];
+        break;
+        case 4:
+            subject = [subject stringByAppendingString:@"GT"];
+        break;
+    }
+    NSLog(@"%@",subject);
+    //Store Questions on server
     while(counter < [self.Nodes count])
     {
-        [parameters stringByAppendingFormat:@"line_order=%d&user_name=%@&course_name=%@",lineOrder,self.username,self.CourseName];
-        if(first == YES)
+        parameters = [parameters stringByAppendingFormat:@"line_order=%d&user_name=%@&course_name=%@",lineOrder,self.username,self.CourseName];
+        if(first == true)
         {
-            [parameters stringByAppendingFormat:@"&number_of_questions=%d",[self.Questions count]];
-            first = NO;
+            parameters = [parameters stringByAppendingFormat:@"&number_of_questions=%d",[self.Questions count]];
+            first = false;
         }
         else
         {
-            [parameters stringByAppendingString:@"&number_of_questions=-1"];
+            parameters = [parameters stringByAppendingString:@"&number_of_questions=-1"];
         }
         spaceCounter=1;
         while((spaceCounter < 5)&&(counter < [self.Nodes count]))
         {
             if([[self.Nodes objectAtIndex:counter] isQuestion] == YES)
             {
-                [parameters stringByAppendingFormat:@"&pos_%d=%d&question_%d=%@",spaceCounter,[self.Nodes count],spaceCounter,[self.Questions objectAtIndex:questionCounter]];
-                [parameters stringByAppendingFormat:@"&answer_%d_1=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer1]];
-                [parameters stringByAppendingFormat:@"&answer_%d_2=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer2]];
-                [parameters stringByAppendingFormat:@"&answer_%d_3=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer3]];
-                [parameters stringByAppendingFormat:@"&correct_%d=%d",spaceCounter,[[self.Questions objectAtIndex:questionCounter] CorrectAnswer]];
+                parameters = [parameters stringByAppendingFormat:@"&pos_%d=%d&question_%d=%@",spaceCounter,counter,spaceCounter,[[self.Questions objectAtIndex:questionCounter] Question]];
+                parameters = [parameters stringByAppendingFormat:@"&answer_%d_1=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer1]];
+                parameters = [parameters stringByAppendingFormat:@"&answer_%d_2=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer2]];
+                parameters = [parameters stringByAppendingFormat:@"&answer_%d_3=%@",spaceCounter,[[self.Questions objectAtIndex:questionCounter] Answer3]];
+                parameters = [parameters stringByAppendingFormat:@"&correct_%d=%d",spaceCounter,[[self.Questions objectAtIndex:questionCounter] CorrectAnswer]];
                 spaceCounter++;
                 questionCounter++;
             }
@@ -148,12 +175,61 @@
         }
         while(spaceCounter < 5)
         {
-            [parameters stringByAppendingFormat:@"&pos_%d=-1&question_%d=empty&answer_%d_1=empty&answer_%d_2=empty&answer_%d_3=empty&correct_%d=0",spaceCounter,spaceCounter,spaceCounter,spaceCounter,spaceCounter,spaceCounter];
+            parameters = [parameters stringByAppendingFormat:@"&pos_%d=-1&question_%d=empty&answer_%d_1=empty&answer_%d_2=empty&answer_%d_3=empty&correct_%d=0",spaceCounter,spaceCounter,spaceCounter,spaceCounter,spaceCounter,spaceCounter];
             spaceCounter++;
         }
-        [self.Connector postMessageToServerSync:@"" Parameters:@""];
+        NSLog(@"%@",parameters);
+        retur = [retur stringByAppendingFormat:@"%@:",[self.Connector postMessageToServerSync:@"test_save_questions.php" Parameters:parameters]];
         lineOrder++;
     }
+    NSLog(@"%@",retur);
+    counter=0;
+    lineOrder=0;
+    first=YES;
+    int geoCounter;
+    NSString *geoparameters=@"";
+    //Store geopoints on server
+    while(counter < [self.Nodes count])
+    {
+        geoparameters = [geoparameters stringByAppendingFormat:@"line_order=%d&user_name=%@&course_name=%@&oldname=%@",lineOrder,self.username,self.CourseName,self.oldname];
+        if(first == YES)
+        {
+            geoparameters = [geoparameters stringByAppendingFormat:@"&number_of_geopoints=%d&subject=%@",[self.Nodes count],subject];
+            first = NO;
+        }
+        else
+        {
+            geoparameters = [geoparameters stringByAppendingString:@"&number_of_geopoints=-1&subject="];
+        }
+        geoCounter=1;
+        while((geoCounter < 5)&&(counter < [self.Nodes count]))
+        {
+            geoparameters = [geoparameters stringByAppendingFormat:@"&latitude_%d=%d&longitude_%d=%d",geoCounter,[self convertDoubletoInt:[[self.Nodes objectAtIndex:counter]Latitude]],geoCounter,[self convertDoubletoInt:[[self.Nodes objectAtIndex:counter]Longitude]]];
+            geoCounter++;
+            counter++;
+        }
+        while(geoCounter < 5)
+        {
+            geoparameters = [geoparameters stringByAppendingFormat:@"&latitude_%d=-1&longitude_%d=-1",geoCounter,geoCounter];
+            geoCounter++;
+        }
+        retur = [retur stringByAppendingFormat:@"%@:",[self.Connector postMessageToServerSync:@"test_save_geopoints.php" Parameters:geoparameters]];
+        lineOrder++;
+    }
+    NSLog(@"%@",retur);
+    self.ReturnedValue = [retur substringToIndex:[retur length]-1];
+    //Logoff
+    [self performSelectorOnMainThread:@selector(logOff) withObject:nil waitUntilDone:NO];
+}
+
+-(void)logOff
+{
+    [self.Connector postMessageToServerAsync:YES FileName:@"test_logoff.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@",self.username,self.password]];    
+}
+
+-(int)convertDoubletoInt:(double)Double
+{
+    return (int)round(Double*1000000.0);
 }
 
 -(BOOL)isStringBlank:(NSString *)stringToCheck
@@ -176,7 +252,6 @@
         return NO;
     }
 }
-
 
 - (IBAction)CancelButtonPressed:(id)sender
 {
