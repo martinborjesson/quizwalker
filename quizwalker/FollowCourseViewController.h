@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <QuartzCore/QuartzCore.h>
+#import "NetCommunication.h"
 
-@interface FollowCourseViewController : UIViewController
+@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate>
+
+- (IBAction)SearchButtonPressed:(id)sender;
+
+@property (strong, nonatomic) CLLocationManager *LocationManager;
+@property (strong, nonatomic) id<GMSMarker> CurrentLocation;
+@property (strong,nonatomic) id<GMSPolyline> MapConnector;
+@property (strong, nonatomic) NSDate *Time;
+
+@property (strong, nonatomic) NSMutableArray *Courses;
+
+@property (nonatomic) double Latitude;
+@property (nonatomic) double Longitude;
 
 @end

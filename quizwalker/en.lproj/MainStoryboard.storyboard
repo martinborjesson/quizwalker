@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gOB-lG-iys">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gOB-lG-iys">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -59,7 +59,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="a9F-iL-egE" kind="push" id="DzM-26-elF"/>
+                                    <segue destination="HKI-fj-Lg4" kind="push" id="Vgq-RY-QBt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -355,28 +355,20 @@
             </objects>
             <point key="canvasLocation" x="1751" y="-348"/>
         </scene>
-        <!--Filter View Controller - selectFilter-->
-        <scene sceneID="iyq-RX-Cdi">
+        <!--Filter View Controller - filter-->
+        <scene sceneID="1bG-iF-Gjy">
             <objects>
-                <viewController title="selectFilter" id="a9F-iL-egE" customClass="FilterViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gmz-fy-tCT">
+                <viewController title="filter" id="HKI-fj-Lg4" customClass="FilterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dyQ-Om-g5M">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-Ak-scy">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qk1-0t-IWJ">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="yl1-L4-J2m"/>
+                                    <constraint firstAttribute="height" constant="216" id="Igq-de-EVy"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-kb-TVO">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="GEZ-h3-6ur"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yku-f4-Qhq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxc-fk-3LW">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Proceed">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -386,45 +378,59 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kFQ-vk-lDr" kind="push" id="GWe-L3-tg8"/>
+                                    <segue destination="VYs-9Q-jgk" kind="push" identifier="GoToFollow" id="aon-b5-jwq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiF-Nt-Bv8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hlB-Ak-scy" firstAttribute="leading" secondItem="gmz-fy-tCT" secondAttribute="leading" type="default" id="3Hb-lI-NGd"/>
-                            <constraint firstItem="yku-f4-Qhq" firstAttribute="leading" secondItem="gmz-fy-tCT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Hei-d1-auL"/>
-                            <constraint firstAttribute="trailing" secondItem="yku-f4-Qhq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SQp-bk-pfb"/>
-                            <constraint firstItem="hlB-Ak-scy" firstAttribute="top" secondItem="SIS-kb-TVO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WLU-Uw-ME1"/>
-                            <constraint firstItem="yku-f4-Qhq" firstAttribute="top" secondItem="hlB-Ak-scy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zgk-ka-u75"/>
-                            <constraint firstItem="SIS-kb-TVO" firstAttribute="leading" secondItem="gmz-fy-tCT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jfD-8m-npp"/>
-                            <constraint firstItem="SIS-kb-TVO" firstAttribute="top" secondItem="gmz-fy-tCT" secondAttribute="top" constant="60" id="khB-rT-rFs"/>
-                            <constraint firstAttribute="trailing" secondItem="SIS-kb-TVO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vQb-aA-Eao"/>
+                            <constraint firstAttribute="bottom" secondItem="xxc-fk-3LW" secondAttribute="bottom" constant="67" id="2qg-Qe-K1b"/>
+                            <constraint firstItem="Qk1-0t-IWJ" firstAttribute="leading" secondItem="dyQ-Om-g5M" secondAttribute="leading" type="default" id="AmS-fD-LJC"/>
+                            <constraint firstItem="Qk1-0t-IWJ" firstAttribute="top" secondItem="BiF-Nt-Bv8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EOf-fe-dsZ"/>
+                            <constraint firstItem="BiF-Nt-Bv8" firstAttribute="centerX" secondItem="Qk1-0t-IWJ" secondAttribute="centerX" type="default" id="FSI-ma-M3j"/>
+                            <constraint firstItem="BiF-Nt-Bv8" firstAttribute="top" secondItem="dyQ-Om-g5M" secondAttribute="top" constant="47" id="ILm-ql-gch"/>
+                            <constraint firstItem="Qk1-0t-IWJ" firstAttribute="trailing" secondItem="dyQ-Om-g5M" secondAttribute="trailing" type="default" id="WFK-eL-lQp"/>
+                            <constraint firstAttribute="trailing" secondItem="xxc-fk-3LW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dzX-ib-lRb"/>
+                            <constraint firstItem="xxc-fk-3LW" firstAttribute="leading" secondItem="dyQ-Om-g5M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jcg-k4-d6Q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Filter" id="cSy-wK-PMi"/>
+                    <navigationItem key="navigationItem" title="Filter" id="7pP-fZ-KrV"/>
+                    <connections>
+                        <outlet property="FilterPickerView" destination="Qk1-0t-IWJ" id="gmb-EG-IjW"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dgr-ze-7IL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7R-Nj-wdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="799" y="307"/>
         </scene>
-        <!--Follow Course View Controller - Follow Course-->
-        <scene sceneID="Ez4-gP-Tvn">
+        <!--Follow Course View Controller - Follow Map-->
+        <scene sceneID="yDG-0r-FaO">
             <objects>
-                <viewController title="Follow Course" id="kFQ-vk-lDr" customClass="FollowCourseViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Follow Course" id="6EE-cU-BHh"/>
+                <viewController id="VYs-9Q-jgk" customClass="FollowCourseViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Follow Map" id="MoS-MG-l3S">
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="4LO-rD-Fok">
+                            <connections>
+                                <action selector="SearchButtonPressed:" destination="VYs-9Q-jgk" id="kCy-Be-YiD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="Ua2-mu-Avx" kind="modal" identifier="showQuestion" id="UZ0-dz-lRI"/>
+                        <segue destination="Ua2-mu-Avx" kind="modal" identifier="GoToQuestion" id="7Oz-ra-aZa"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YeZ-i0-TKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoQ-yS-jY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1271" y="307"/>
         </scene>
-        <!--View Controller-->
+        <!--Answer Question View Controller-->
         <scene sceneID="Z8P-Vg-NMv">
             <objects>
-                <viewController id="Ua2-mu-Avx" sceneMemberID="viewController">
+                <viewController id="Ua2-mu-Avx" customClass="AnswerQuestionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1fh-I5-s5Z">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -491,6 +497,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AnswerQuestionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerQuestionViewController.h"/>
+        </class>
         <class className="CreateCourseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateCourseViewController.h"/>
             <relationships>
@@ -517,12 +526,18 @@
         </class>
         <class className="FilterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="FilterPickerView" candidateClass="UIPickerView"/>
+            </relationships>
         </class>
         <class className="FirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
         </class>
         <class className="FollowCourseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowCourseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="SearchButtonPressed:"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

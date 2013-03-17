@@ -68,9 +68,8 @@
     //Is data ok?
     if(([self.CourseName length] > 0)&&([self isStringBlank:self.CourseName] == NO))
     {
-        //Turn off buttons
+        //Turn off button
         [self.SaveButton setEnabled:NO];
-        [self.SubjectPicker setUserInteractionEnabled:NO];
         //Get login data
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         self.username = [[NSString alloc] initWithString:[defaults stringForKey:@"username"]];
@@ -108,10 +107,9 @@
     {
         if([answer isEqualToString:@"perfect\t"])
         {
-            //Turn oon buttons
+            //Turn on button
             [self.SaveButton setEnabled:YES];
-            [self.SubjectPicker setUserInteractionEnabled:YES];
-        
+        }
     }
 }
 

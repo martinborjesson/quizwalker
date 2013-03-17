@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FilterViewController : UIViewController
+@interface FilterViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *FilterPickerView;
+
+@property (strong,nonatomic) NSArray *Subjects;
+@property (nonatomic) int SubjectSelection;
 
 @end
