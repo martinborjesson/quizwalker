@@ -41,7 +41,33 @@
 {
     if ([[segue identifier] isEqualToString:@"GoToFollow"])
     {
-
+        switch(self.SubjectSelection)
+        {
+            //No filter
+            case 0:
+                [[segue destinationViewController] setSubject:@"NF"];
+            break;
+            //Anything
+            case 1:
+                [[segue destinationViewController] setSubject:@"AN"];
+            break;
+            //Science and technology
+            case 2:
+                [[segue destinationViewController] setSubject:@"ST"];
+            break;
+            //Sport and Entertainment
+            case 3:
+                [[segue destinationViewController] setSubject:@"SE"];
+            break;
+            //History and politics
+            case 4:
+                [[segue destinationViewController] setSubject:@"HP"];
+            break;
+            //Geography and travel
+            case 5:
+                [[segue destinationViewController] setSubject:@"GT"];
+            break;
+        }
     }
 }
 

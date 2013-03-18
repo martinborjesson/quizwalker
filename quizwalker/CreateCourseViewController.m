@@ -145,9 +145,6 @@
         case 4:
             NSLog(@"Pressed button 'Cancel'");
         break;
-
-        default:
-        break;
     }
 }
 

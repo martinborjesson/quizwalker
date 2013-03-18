@@ -11,6 +11,9 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <QuartzCore/QuartzCore.h>
 #import "NetCommunication.h"
+#import "Courses.h"
+#import "Question.h"
+#import "CourseNode.h"
 
 @interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate>
 
@@ -22,6 +25,13 @@
 @property (strong, nonatomic) NSDate *Time;
 
 @property (strong, nonatomic) NSMutableArray *Courses;
+
+@property (nonatomic,strong) NSOperationQueue *Queue;
+@property (nonatomic,strong) NSString *username;
+@property (nonatomic,strong) NSString *password;
+@property (nonatomic,strong) NSString *subject;
+
+@property (atomic,strong) NetCommunication *Connector;
 
 @property (nonatomic) double Latitude;
 @property (nonatomic) double Longitude;

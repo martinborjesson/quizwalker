@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FollowCourseViewController.h"
 
 @interface FilterViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *FilterPickerView;

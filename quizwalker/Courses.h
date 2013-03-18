@@ -10,6 +10,12 @@
 
 @interface Courses : NSObject
 
+@property (nonatomic,strong) NSString *CourseName;
+@property (nonatomic,strong) NSString *Subject;
+@property (nonatomic) float Rating;
+@property (nonatomic) float Difficulty;
+@property (nonatomic) int   NumberOfVotes;
+
 @property (nonatomic,strong) NSMutableArray *Questions;
 @property (nonatomic,strong) NSMutableArray *Nodes;
 
