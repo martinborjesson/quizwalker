@@ -14,8 +14,9 @@
 #import "Courses.h"
 #import "Question.h"
 #import "CourseNode.h"
+#import "AnswerQuestionViewController.h"
 
-@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate>
+@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate,ReturnAnswerDelegate>
 
 - (IBAction)SearchButtonPressed:(id)sender;
 
@@ -30,6 +31,11 @@
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *subject;
+@property (nonatomic) int CurrentCourse;
+@property (nonatomic) int QuestionCount;
+@property (nonatomic) int Score;
+
+@property (nonatomic) BOOL WaitForQuestion;
 
 @property (atomic,strong) NetCommunication *Connector;
 

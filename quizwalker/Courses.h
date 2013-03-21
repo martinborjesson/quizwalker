@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface Courses : NSObject
 
@@ -15,6 +16,7 @@
 @property (nonatomic) float Rating;
 @property (nonatomic) float Difficulty;
 @property (nonatomic) int   NumberOfVotes;
+@property (strong, nonatomic) id<GMSMarker> Pointer;
 
 @property (nonatomic,strong) NSMutableArray *Questions;
 @property (nonatomic,strong) NSMutableArray *Nodes;

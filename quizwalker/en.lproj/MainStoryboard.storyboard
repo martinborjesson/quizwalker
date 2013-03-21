@@ -435,8 +435,9 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="J5W-Bh-3g3">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="307" translatesAutoresizingMaskIntoConstraints="NO" id="J5W-Bh-3g3">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="307" id="Zqq-8Q-Rbd"/>
                                     <constraint firstAttribute="height" constant="277" id="iXc-qr-m2c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -452,6 +453,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AnswerButtonOnePressed:" destination="Ua2-mu-Avx" eventType="touchUpInside" id="CEp-tr-3la"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-KG-gwC">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -462,6 +466,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AnswerButtonTwoPressed:" destination="Ua2-mu-Avx" eventType="touchUpInside" id="xn3-4m-T3T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tv3-FL-3Vk">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -472,24 +479,32 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AnswerButtonThreePressed:" destination="Ua2-mu-Avx" eventType="touchUpInside" id="Vlz-Fb-B8q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N2d-hA-SHB" firstAttribute="top" secondItem="J5W-Bh-3g3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cti-ht-8QL"/>
-                            <constraint firstItem="Tv3-FL-3Vk" firstAttribute="leading" secondItem="1fh-I5-s5Z" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MBw-ac-frt"/>
+                            <constraint firstItem="Tv3-FL-3Vk" firstAttribute="leading" secondItem="RaY-KG-gwC" secondAttribute="leading" type="default" id="NBG-Hd-KRH"/>
+                            <constraint firstItem="J5W-Bh-3g3" firstAttribute="leading" secondItem="1fh-I5-s5Z" secondAttribute="leading" constant="6" id="ORo-12-Vy3"/>
                             <constraint firstItem="Tv3-FL-3Vk" firstAttribute="top" secondItem="RaY-KG-gwC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WcM-Bh-e1p"/>
-                            <constraint firstAttribute="trailing" secondItem="Tv3-FL-3Vk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cPR-b8-HCd"/>
-                            <constraint firstItem="RaY-KG-gwC" firstAttribute="leading" secondItem="1fh-I5-s5Z" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kC0-Nq-QWl"/>
+                            <constraint firstItem="J5W-Bh-3g3" firstAttribute="leading" secondItem="N2d-hA-SHB" secondAttribute="leading" type="default" id="ZAo-Lw-bwk"/>
+                            <constraint firstItem="N2d-hA-SHB" firstAttribute="trailing" secondItem="RaY-KG-gwC" secondAttribute="trailing" type="default" id="ZOV-7V-8q2"/>
+                            <constraint firstItem="RaY-KG-gwC" firstAttribute="trailing" secondItem="Tv3-FL-3Vk" secondAttribute="trailing" type="default" id="cQC-zw-IJW"/>
+                            <constraint firstItem="N2d-hA-SHB" firstAttribute="trailing" secondItem="J5W-Bh-3g3" secondAttribute="trailing" type="default" id="jFB-hM-SzF"/>
                             <constraint firstItem="RaY-KG-gwC" firstAttribute="top" secondItem="N2d-hA-SHB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kLK-wu-nif"/>
-                            <constraint firstItem="J5W-Bh-3g3" firstAttribute="leading" secondItem="1fh-I5-s5Z" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mvq-NQ-2Zx"/>
-                            <constraint firstAttribute="trailing" secondItem="N2d-hA-SHB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oZ4-LL-1WB"/>
-                            <constraint firstAttribute="trailing" secondItem="J5W-Bh-3g3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="r24-By-lNe"/>
-                            <constraint firstItem="N2d-hA-SHB" firstAttribute="leading" secondItem="1fh-I5-s5Z" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="v4L-dQ-Vym"/>
-                            <constraint firstAttribute="trailing" secondItem="RaY-KG-gwC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="yKa-1N-Ytv"/>
+                            <constraint firstItem="N2d-hA-SHB" firstAttribute="leading" secondItem="RaY-KG-gwC" secondAttribute="leading" type="default" id="t8p-aK-qUF"/>
                             <constraint firstAttribute="bottom" secondItem="Tv3-FL-3Vk" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="yg6-Qt-skf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AnswerButton1" destination="N2d-hA-SHB" id="Ree-5w-Y2c"/>
+                        <outlet property="AnswerButton2" destination="RaY-KG-gwC" id="jAu-Cz-QEZ"/>
+                        <outlet property="AnswerButton3" destination="Tv3-FL-3Vk" id="5mP-PF-CGl"/>
+                        <outlet property="QuestionTextLabel" destination="J5W-Bh-3g3" id="pOZ-gI-wan"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5o-ZS-hxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,6 +514,15 @@
     <classes>
         <class className="AnswerQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="AnswerButtonOnePressed:"/>
+                <relationship kind="action" name="AnswerButtonThreePressed:"/>
+                <relationship kind="action" name="AnswerButtonTwoPressed:"/>
+                <relationship kind="outlet" name="AnswerButton1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="AnswerButton2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="AnswerButton3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="QuestionTextLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="CreateCourseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateCourseViewController.h"/>

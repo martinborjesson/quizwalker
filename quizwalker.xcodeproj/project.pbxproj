@@ -73,6 +73,7 @@
 		5B19B0E516E7CC5900D999AF /* CourseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseNode.m; sourceTree = "<group>"; };
 		5B227E8916F1CCF800A50F69 /* SaveCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveCourseViewController.h; sourceTree = "<group>"; };
 		5B227E8A16F1CCF800A50F69 /* SaveCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveCourseViewController.m; sourceTree = "<group>"; };
+		5B2A45A716FA1AD300C2ED6E /* varberg2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = varberg2.gpx; sourceTree = "<group>"; };
 		5B2C4F0616F605D800121C7B /* Helsingborg.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Helsingborg.gpx; sourceTree = "<group>"; };
 		5B2C4F0716F6063200121C7B /* Landskrona.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Landskrona.gpx; sourceTree = "<group>"; };
 		5B2C4F0816F6069800121C7B /* Lund.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lund.gpx; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 			children = (
 				5B19B0E016E78FE400D999AF /* halmstad.gpx */,
 				5B19B0E116E7905E00D999AF /* varberg.gpx */,
+				5B2A45A716FA1AD300C2ED6E /* varberg2.gpx */,
 				5B19B0E316E791A400D999AF /* laholm.gpx */,
 				5B2C4F0616F605D800121C7B /* Helsingborg.gpx */,
 				5B2C4F0716F6063200121C7B /* Landskrona.gpx */,

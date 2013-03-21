@@ -20,3 +20,7 @@
 "SUBJECT_SE" = "Sport and Entertainment";
 "SUBJECT_HP" = "History and Politics";
 "SUBJECT_GT" = "Geography and Travel";
+"NOTHING_FOUND_TITLE" = "Nothing found";
+"NOTHING_FOUND_ERROR_MESSAGE" = "There are no courses in your vicinity";
+"COURSE_FINISHED_TITLE" = "Congratulations!";
+"COURSE_FINISHED_MESSAGE" = "You have finished the course, Your Score:";
