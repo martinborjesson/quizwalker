@@ -161,7 +161,7 @@
 {
     if([self numberOfQuestionsLeft] == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
             message: NSLocalizedString(@"NO_MORE_QUESTIONS_ERROR_MESSAGE",nil)
             delegate:nil
             cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
@@ -171,7 +171,7 @@
     }
     if([self.Nodes count] == 60)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
             message: NSLocalizedString(@"MAXIMUM_NODES_ERROR_MESSAGE",nil)
             delegate:nil
             cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)

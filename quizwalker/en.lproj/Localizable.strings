@@ -9,6 +9,7 @@
 "INPUT_ERROR_BLANK_STRING" = "Blank input, try again";
 "INPUT_ERROR_WRONG_EMAIL" = "Email is missing @";
 "INPUT_ERROR_WRONG_PASSWORD" = "User exists, Wrong password";
+"COURSE_EXISTS_ERROR_MESSAGE" = "The Course Already exists, try different name";
 "NO_NODES_ERROR_MESSAGE" = "The Course is Empty";
 "NO_MORE_QUESTIONS_ERROR_MESSAGE" = "No more Questions left";
 "FIRST_QUESTION_ERROR_MESSAGE" = "First Node must be a Question";
@@ -24,3 +25,5 @@
 "NOTHING_FOUND_ERROR_MESSAGE" = "There are no courses in your vicinity";
 "COURSE_FINISHED_TITLE" = "Congratulations!";
 "COURSE_FINISHED_MESSAGE" = "You have finished the course, Your Score:";
+"LOGIN_ERROR_TITLE" = "Login error, try again";
+
