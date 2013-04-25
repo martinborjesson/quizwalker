@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B06C0FD1715A58C00F0AC70 /* LoginAlertBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0FC1715A58C00F0AC70 /* LoginAlertBox.m */; };
 		5B0B1DE816DD18B200749AEF /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE716DD18B200749AEF /* Question.m */; };
 		5B0B1DEA16DD360700749AEF /* CODialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B1DE916DD360700749AEF /* CODialog.m */; };
 		5B12E76716DD5EDA00ACCA13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B12E76516DD5EDA00ACCA13 /* Localizable.strings */; };
@@ -59,6 +60,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B06C0FB1715A58C00F0AC70 /* LoginAlertBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAlertBox.h; sourceTree = "<group>"; };
+		5B06C0FC1715A58C00F0AC70 /* LoginAlertBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAlertBox.m; sourceTree = "<group>"; };
 		5B0B1DE616DD18B200749AEF /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		5B0B1DE716DD18B200749AEF /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		5B0B1DE916DD360700749AEF /* CODialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CODialog.m; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				5B9C38DF16F106B300555F7A /* FollowCourseViewController.m */,
 				5B391F7116DA129E00FEE581 /* AppDelegate.h */,
 				5B391F7216DA129E00FEE581 /* AppDelegate.m */,
+				5B06C0FB1715A58C00F0AC70 /* LoginAlertBox.h */,
+				5B06C0FC1715A58C00F0AC70 /* LoginAlertBox.m */,
 				5B35AC2F16E246A200A9484C /* CreateCourseViewController.h */,
 				5B35AC3016E246A200A9484C /* CreateCourseViewController.m */,
 				5B19502616DA606600FD1C1F /* CreateQuestionsViewController.h */,
@@ -391,6 +396,7 @@
 				5B227E8B16F1CCF800A50F69 /* SaveCourseViewController.m in Sources */,
 				5B2C4F0B16F62FD300121C7B /* Courses.m in Sources */,
 				5B2C4F0E16F63C9200121C7B /* AnswerQuestionViewController.m in Sources */,
+				5B06C0FD1715A58C00F0AC70 /* LoginAlertBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

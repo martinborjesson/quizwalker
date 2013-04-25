@@ -10,14 +10,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <QuartzCore/QuartzCore.h>
-#import "CODialog.h"
+#import "LoginAlertBox.h"
 #import "NetCommunication.h"
 #import "Courses.h"
 #import "Question.h"
 #import "CourseNode.h"
 #import "AnswerQuestionViewController.h"
 
-@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate,ReturnAnswerDelegate>
+@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate,ReturnAnswerDelegate,LoginAlertBoxDelegate>
 
 - (IBAction)SearchButtonPressed:(id)sender;
 
@@ -27,12 +27,12 @@
 @property (strong, nonatomic) NSDate *Time;
 
 @property (strong, nonatomic) NSMutableArray *Courses;
-@property (nonatomic,strong) CODialog *Dialog;
+@property (nonatomic,strong) LoginAlertBox *AlertBox;
 
 @property (nonatomic,strong) NSOperationQueue *Queue;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
-@property (nonatomic,strong) NSString *email;
+
 @property (nonatomic,strong) NSString *subject;
 @property (nonatomic) int CurrentCourse;
 @property (nonatomic) int QuestionCount;

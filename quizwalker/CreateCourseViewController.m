@@ -32,6 +32,8 @@
                                                             longitude:18.06419
                                                                  zoom:16];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    self.mapView.mapType = kGMSTypeNormal;
+    self.Satellite = NO;
     self.view = self.mapView;
 
     //Start GPS
@@ -101,7 +103,7 @@
 
 - (IBAction)MenuButtonPressed:(id)sender
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Last Node" otherButtonTitles:@"New Question", @"New Waypoint", @"Save Course", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"MENU_TITLE",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL_BUTTON",nil) destructiveButtonTitle:NSLocalizedString(@"DELETE_LAST_NODE",nil) otherButtonTitles:NSLocalizedString(@"SWITCH_MAP_VIEW",nil),NSLocalizedString(@"NEW_QUESTION",nil),NSLocalizedString(@"NEW_WAYPOINT",nil),NSLocalizedString(@"SAVE_COURSE",nil),nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.view];
 }
@@ -112,26 +114,37 @@
     {
         //Delete Node
         case 0:
-            NSLog(@"Pressed button 'Delete Node'");
             [self deleteNode];
         break;
-        //New Question
+        //Switch Map View
         case 1:
-            NSLog(@"Pressed button 'New Question'");
+            if(self.Satellite == NO)
+            {
+                self.mapView.mapType = kGMSTypeHybrid;
+                self.Satellite = YES;
+                [self.MapConnector setColor:[[UIColor alloc]initWithRed:(255.0/255.0) green:(255.0/255.0) blue:(0.0/255.0) alpha:1]];
+            }
+            else
+            {
+                self.mapView.mapType = kGMSTypeNormal;
+                self.Satellite = NO;
+                [self.MapConnector setColor:[[UIColor alloc]initWithRed:(80.0/255.0) green:(88.0/255.0) blue:(80.0/255.0) alpha:1]];
+            }
+        break;
+        //New Question
+        case 2:
             [self createNewQuestion];
         break;
         //New Waypoint
-        case 2:
-            NSLog(@"Pressed button 'New Waypoint'");
+        case 3:
             [self createNewWaypoint];
         break;
         //Save Course
-        case 3:
-            NSLog(@"Pressed button 'Save Course'");
+        case 4:
             //Is the anything to save?
             if([self.Nodes count] == 0)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:    NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ALERT_MSG_INPUT_ERROR_TITLE",nil)
                     message: NSLocalizedString(@"NO_NODES_ERROR_MESSAGE",nil)
                     delegate:nil
                     cancelButtonTitle: NSLocalizedString(@"OK_BUTTON",nil)
@@ -142,7 +155,7 @@
             [self performSegueWithIdentifier:@"saveCourseSegue" sender:self];
         break;
         //Cancel
-        case 4:
+        case 5:
             NSLog(@"Pressed button 'Cancel'");
         break;
     }
@@ -278,7 +291,10 @@
         [path addCoordinate:CLLocationCoordinate2DMake([[self.Nodes objectAtIndex:counter] Latitude], [[self.Nodes objectAtIndex:counter] Longitude])];
     }
     Line.path = path;
-    Line.color = [[UIColor alloc]initWithRed:(80.0/255.0) green:(88.0/255.0) blue:(80.0/255.0) alpha:1];
+    if(self.Satellite == NO)
+        Line.color = [[UIColor alloc]initWithRed:(80.0/255.0) green:(88.0/255.0) blue:(80.0/255.0) alpha:1];
+    else
+        Line.color = [[UIColor alloc]initWithRed:(255.0/255.0) green:(255.0/255.0) blue:(0.0/255.0) alpha:1];
     Line.width = 2.0;
     self.MapConnector = [self.mapView addPolylineWithOptions:Line];
 }

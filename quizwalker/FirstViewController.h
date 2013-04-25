@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CODialog.h"
-#import "NetCommunication.h"
+#import "LoginAlertBox.h"
 
-@interface FirstViewController : UIViewController <NetCommunicationDelegate>
-
+@interface FirstViewController : UIViewController //<NetCommunicationDelegate>
+/*
 @property (nonatomic,strong) CODialog *Dialog;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *email;
+*/
+@property (nonatomic,strong) LoginAlertBox *AlertBox;
 
 @end

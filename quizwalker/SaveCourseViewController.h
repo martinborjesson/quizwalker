@@ -10,22 +10,23 @@
 #import "NetCommunication.h"
 #import "CourseNode.h"
 #import "Question.h"
-#import "CODialog.h"
+#import "LoginAlertBox.h"
 
-@interface SaveCourseViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,NetCommunicationDelegate>
+@interface SaveCourseViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,NetCommunicationDelegate,LoginAlertBoxDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *SaveCourseTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *SubjectPicker;
 @property (weak, nonatomic) IBOutlet UIButton *SaveButton;
 @property (weak, nonatomic) IBOutlet UIButton *CancelButton;
 @property (nonatomic,strong) NSArray *Subjects;
-@property (nonatomic,strong) CODialog *Dialog;
+
+@property (nonatomic,strong) LoginAlertBox *AlertBox;
 
 @property (nonatomic,strong) NSMutableArray *Questions;
 @property (nonatomic,strong) NSMutableArray *Nodes;
 @property (nonatomic,strong) NSString *CourseName;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
-@property (nonatomic,strong) NSString *email;
+
 @property (nonatomic,strong) NSString *oldname;
 @property (nonatomic,strong) NSString *ReturnedValue;
 

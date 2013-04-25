@@ -1,7 +1,8 @@
-/*Input error*/
+
 "ALERT_MSG_INPUT_ERROR_TITLE" = "Input Error";
 "ALERT_MSG_INPUT_ERROR_MESSAGE" = "All four text fields must be filled out";
 "OK_BUTTON" = "Ok";
+"CANCEL_BUTTON" = "Cancel";
 "NEW_USER_TITLE" = "Create or Login User";
 "USER" = "Username";
 "PASSWORD" = "Password";
@@ -26,4 +27,9 @@
 "COURSE_FINISHED_TITLE" = "Congratulations!";
 "COURSE_FINISHED_MESSAGE" = "You have finished the course, Your Score:";
 "LOGIN_ERROR_TITLE" = "Login error, try again";
-
+"MENU_TITLE" = "Menu";
+"DELETE_LAST_NODE" = "Delete Last Node";
+"NEW_QUESTION" = "New Question";
+"NEW_WAYPOINT" = "New Waypoint";
+"SAVE_COURSE" = "Save Course";
+"SWITCH_MAP_VIEW" = "Switch Map View";

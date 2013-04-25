@@ -22,6 +22,7 @@
 
 @property (nonatomic,strong) NSMutableArray *Questions;
 @property (nonatomic,strong) NSMutableArray *Nodes;
+@property (nonatomic) Boolean Satellite;
 
 @property (nonatomic) double Latitude;
 @property (nonatomic) double Longitude;
