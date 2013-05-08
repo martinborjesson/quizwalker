@@ -470,15 +470,39 @@
 
 - (IBAction)SearchButtonPressed:(id)sender
 {
-    //Get login data
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.username = [[NSString alloc] initWithString:[defaults stringForKey:@"username"]];
-    self.password = [[NSString alloc] initWithString:[defaults stringForKey:@"password"]];
-    //Setup connection
-    self.Connector = [[NetCommunication alloc] init];
-    self.Connector.delegate = self;
-    //Login to server
-    [self.Connector postMessageToServerAsync:YES FileName:@"test_login.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@",self.username,self.password]];
+    //Create Action Sheet
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"MENU_TITLE",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL_BUTTON",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"SWITCH_MAP_VIEW",nil),NSLocalizedString(@"SEARCH_FOR_COURSES",nil),nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex)
+    {
+        //Switch Map View
+        case 0:
+            
+        break;
+        //Search for Courses
+        case 1:
+        {
+            //Get login data
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            self.username = [[NSString alloc] initWithString:[defaults stringForKey:@"username"]];
+            self.password = [[NSString alloc] initWithString:[defaults stringForKey:@"password"]];
+            //Setup connection
+            self.Connector = [[NetCommunication alloc] init];
+            self.Connector.delegate = self;
+            //Login to server
+            [self.Connector postMessageToServerAsync:YES FileName:@"test_login.php" Parameters:[NSString stringWithFormat:@"user_name=%@&password=%@",self.username,self.password]];
+        }
+        break;
+        //Cancel
+        case 2:
+            NSLog(@"Pressed Cancel");
+        break;
+    }
 }
 
 -(int)convertDoubletoInt:(double)Double

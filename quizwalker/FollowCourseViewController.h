@@ -17,7 +17,7 @@
 #import "CourseNode.h"
 #import "AnswerQuestionViewController.h"
 
-@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate,ReturnAnswerDelegate,LoginAlertBoxDelegate>
+@interface FollowCourseViewController : UIViewController <CLLocationManagerDelegate,NetCommunicationDelegate,ReturnAnswerDelegate,LoginAlertBoxDelegate,UIActionSheetDelegate>
 
 - (IBAction)SearchButtonPressed:(id)sender;
 

@@ -413,7 +413,7 @@
             <objects>
                 <viewController id="VYs-9Q-jgk" customClass="FollowCourseViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Follow Map" id="MoS-MG-l3S">
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="4LO-rD-Fok">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="4LO-rD-Fok">
                             <connections>
                                 <action selector="SearchButtonPressed:" destination="VYs-9Q-jgk" id="kCy-Be-YiD"/>
                             </connections>
